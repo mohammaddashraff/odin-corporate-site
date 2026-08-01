@@ -5,9 +5,9 @@ export const siteConfig = {
   tagline: "Total Vision. Complete Control.",
   description:
     "ODIN delivers structured business systems enhanced with intelligent automation - giving organizations total visibility and complete control.",
-  url: "https://odin-systems.example",
+  url: "https://odin-ltd.com",
   ogImage: "/brand/og-placeholder.svg",
-  email: "hello@odin-systems.example"
+  email: "hello@odin-ltd.com"
 };
 
 export const navItems = [

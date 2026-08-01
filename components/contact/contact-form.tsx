@@ -86,7 +86,7 @@ export function ContactForm() {
       setStatusMessage("Your request was submitted successfully. ODIN team will contact you soon.");
     } catch {
       setStatus("error");
-      setStatusMessage("Submission failed. Please try again or email hello@odin-systems.example.");
+      setStatusMessage("Submission failed. Please try again or email hello@odin-ltd.com.");
     }
   }
 

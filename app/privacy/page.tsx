@@ -28,7 +28,7 @@ export default function PrivacyPage() {
             access, disclosure, or misuse.
           </p>
           <p>
-            You may request access, correction, or deletion of personal data by contacting hello@odin-systems.example.
+            You may request access, correction, or deletion of personal data by contacting hello@odin-ltd.com.
             We will respond in accordance with applicable regulations.
           </p>
         </div>
