@@ -1,48 +1,19 @@
-import { FAQAccordion } from "@/components/sections/faq-accordion";
-import { ServiceGrid } from "@/components/sections/service-grid";
-import { Container } from "@/components/ui/container";
-import { EyeWatermark } from "@/components/ui/eye-watermark";
-import { coreServices, intelligentLayer } from "@/content/site-content";
+import { ERPInfoPage } from "@/components/sections/erp-info-page";
 import { pageMetadata } from "@/lib/site";
 
-export const metadata = pageMetadata(
-  "Services",
-  "Explore ODIN services: custom CRM, accounting systems, business platforms, and embedded AI automation.",
-  "/services"
-);
+export const metadata = pageMetadata("ERP Modules", "Explore the operational modules implemented in ODIN ERP.", "/services");
 
 export default function ServicesPage() {
-  return (
-    <>
-      <section className="relative overflow-hidden border-b border-stroke py-16 md:py-20">
-        <EyeWatermark />
-        <Container className="relative z-10">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-blue">Services</p>
-          <h1 className="mt-4 max-w-3xl text-balance text-4xl font-semibold leading-tight md:text-5xl">
-            Enterprise systems tailored to your operating reality
-          </h1>
-          <p className="mt-5 max-w-3xl text-base leading-relaxed text-muted">
-            ODIN delivers structured business systems enhanced with intelligent automation - giving organizations total
-            visibility and complete control.
-          </p>
-        </Container>
-      </section>
-
-      <ServiceGrid
-        eyebrow="Core Services"
-        title="Foundation systems"
-        description="Operational platforms engineered for control, reporting confidence, and measurable execution speed."
-        items={coreServices}
-      />
-
-      <ServiceGrid
-        eyebrow="AI Services"
-        title="Intelligent automation layer"
-        description="Embed practical AI into communication, reporting, and decision workflows without disrupting governance."
-        items={intelligentLayer}
-      />
-
-      <FAQAccordion />
-    </>
-  );
+  return <ERPInfoPage
+    eyebrow={{ en: "ERP Modules", ar: "وحدات النظام" }}
+    title={{ en: "Connected workflows from transaction to ledger", ar: "دورات عمل مترابطة من المستند حتى القيد" }}
+    description={{ en: "ODIN ERP executes the complete sales, purchasing, inventory, POS, accounting, banking, approval, and reporting workflows in one platform.", ar: "ينفذ ODIN ERP دورات المبيعات والمشتريات والمخزون ونقاط البيع والمحاسبة والبنوك والموافقات والتقارير في منصة واحدة." }}
+    image="/screenshots/erp-dashboard.png"
+    items={[
+      { title: { en: "Sales and customers", ar: "المبيعات والعملاء" }, text: { en: "Quotation to order, delivery, invoice, payment allocation, statement, aging, return, and credit note.", ar: "من عرض السعر إلى الأمر والتسليم والفاتورة والتحصيل وكشف الحساب والأعمار والمرتجع والإشعار الدائن." } },
+      { title: { en: "Purchasing and suppliers", ar: "المشتريات والموردون" }, text: { en: "Purchase requests, orders, goods receipts, supplier bills, allocations, returns, GRNI, VAT, and payables.", ar: "طلبات وأوامر الشراء والاستلام وفواتير الموردين والتسويات والمرتجعات وحساب الاستلام غير المفوتر والضرائب والدائنين." } },
+      { title: { en: "Inventory and POS", ar: "المخزون ونقاط البيع" }, text: { en: "Warehouse transfers, counts, adjustments, valuation, barcode sales, split tender, receipts, returns, and shift control.", ar: "تحويلات وجرد وتسويات وتقييم المخزون، وبيع بالباركود ودفع مختلط وإيصالات ومرتجعات وإدارة الورديات." } },
+      { title: { en: "Finance and control", ar: "المالية والرقابة" }, text: { en: "Journals, fiscal periods, cash and bank, reconciliation, approvals, immutable posting, audit trail, and financial reports.", ar: "القيود والفترات المالية والخزينة والبنوك والتسويات والموافقات والترحيل المحكم وسجل التدقيق والتقارير المالية." } }
+    ]}
+  />;
 }

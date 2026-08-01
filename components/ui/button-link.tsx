@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ReactNode } from "react";
 
 type ButtonLinkProps = {
-  href: Route;
+  href: string;
   children: ReactNode;
   variant?: "primary" | "secondary";
   className?: string;
@@ -18,8 +18,18 @@ export function ButtonLink({ href, children, variant = "primary", className }: B
       ? "border-blue bg-blue text-white hover:-translate-y-0.5 hover:bg-blue/90"
       : "border-stroke bg-white/[0.02] text-text hover:-translate-y-0.5 hover:border-silver/50 hover:bg-white/[0.04]";
 
+  const external = href.startsWith("http");
+
+  if (external) {
+    return (
+      <a href={href} className={`${base} ${styles} ${className ?? ""}`} target="_blank" rel="noopener noreferrer">
+        {children}
+      </a>
+    );
+  }
+
   return (
-    <Link href={href} className={`${base} ${styles} ${className ?? ""}`}>
+    <Link href={href as Route} className={`${base} ${styles} ${className ?? ""}`}>
       {children}
     </Link>
   );

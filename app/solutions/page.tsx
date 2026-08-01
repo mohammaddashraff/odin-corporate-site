@@ -1,61 +1,18 @@
-import { FeatureList } from "@/components/sections/feature-list";
-import { PricingTeaser } from "@/components/sections/pricing-teaser";
-import { StatsStrip } from "@/components/sections/stats-strip";
-import { Container } from "@/components/ui/container";
-import { EyeWatermark } from "@/components/ui/eye-watermark";
+import { ERPInfoPage } from "@/components/sections/erp-info-page";
 import { pageMetadata } from "@/lib/site";
 
-const solutionBlocks = [
-  {
-    title: "Operations Control Layer",
-    text: "Command dashboards, workflow orchestration, and role-based operational control designed for real-time execution."
-  },
-  {
-    title: "Finance & Audit Layer",
-    text: "Integrated accounting workflows with traceable approvals, compliance-ready records, and reliable forecasting views."
-  },
-  {
-    title: "Customer Management Layer",
-    text: "CRM architecture aligned with actual customer journeys, lifecycle stages, and service-level accountability."
-  },
-  {
-    title: "Automation & AI Layer",
-    text: "Embedded assistants and automation modules that reduce manual load while maintaining governance and oversight."
-  }
-];
-
-export const metadata = pageMetadata(
-  "Solutions Platform",
-  "ODIN solutions platform connects operations, finance, CRM, and AI into one enterprise control environment.",
-  "/solutions"
-);
+export const metadata = pageMetadata("ODIN ERP Platform", "A bilingual and auditable ERP platform for distribution and finance.", "/solutions");
 
 export default function SolutionsPage() {
-  return (
-    <>
-      <section className="relative overflow-hidden border-b border-stroke py-16 md:py-20">
-        <EyeWatermark />
-        <Container className="relative z-10">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-blue">Solutions Platform</p>
-          <h1 className="mt-4 max-w-4xl text-balance text-4xl font-semibold leading-tight md:text-5xl">
-            One structured platform for enterprise operations, finance, and automation
-          </h1>
-          <p className="mt-5 max-w-3xl text-base leading-relaxed text-muted">
-            ODIN is not a disconnected toolkit. It is a coordinated system architecture that unifies execution,
-            reporting, and decision intelligence.
-          </p>
-        </Container>
-      </section>
-
-      <FeatureList
-        eyebrow="Platform Modules"
-        title="Designed as a connected operating system"
-        description="Each module is deployable independently and more powerful when combined within ODIN's integrated data model."
-        features={solutionBlocks}
-      />
-
-      <StatsStrip />
-      <PricingTeaser />
-    </>
-  );
+  return <ERPInfoPage
+    eyebrow={{ en: "The Platform", ar: "المنصة" }}
+    title={{ en: "Operational execution with accounting integrity", ar: "تنفيذ تشغيلي بدقة محاسبية" }}
+    description={{ en: "Every posted business event remains connected to its source document, stock movement, approval history, and journal evidence.", ar: "يظل كل حدث أعمال مُرحّل مرتبطاً بالمستند المصدر وحركة المخزون وسجل الموافقات والقيد المحاسبي." }}
+    items={[
+      { title: { en: "One connected document chain", ar: "سلسلة مستندية واحدة" }, text: { en: "Partial conversions and remaining-quantity controls connect quotations, orders, deliveries, invoices, receipts, and returns.", ar: "التحويل الجزئي وضوابط الكميات المتبقية تربط العروض والأوامر والتسليم والفواتير والتحصيل والمرتجعات." } },
+      { title: { en: "Auditable by design", ar: "قابل للتدقيق بطبيعته" }, text: { en: "Maker-checker approvals, immutable posted journals, linked reversals, and append-only audit records preserve accountability.", ar: "الموافقات وفصل المهام والقيود المرحلة غير القابلة للتعديل والعكس المرتبط وسجل التدقيق تحفظ المساءلة." } },
+      { title: { en: "Role-aware access", ar: "صلاحيات حسب الدور" }, text: { en: "Administrators, finance, accounting, audit, sales, purchasing, warehouse, and POS users see only permitted workflows.", ar: "يرى مستخدمو الإدارة والمالية والمحاسبة والمراجعة والمبيعات والمشتريات والمخازن ونقاط البيع ما تسمح به أدوارهم فقط." } },
+      { title: { en: "English and Arabic RTL", ar: "إنجليزي وعربي RTL" }, text: { en: "The product supports complete English/LTR and Arabic/RTL interfaces with persistent language selection.", ar: "يدعم المنتج واجهات إنجليزية كاملة وعربية كاملة باتجاه RTL مع حفظ اختيار اللغة." } }
+    ]}
+  />;
 }
