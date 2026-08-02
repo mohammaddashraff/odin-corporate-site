@@ -37,9 +37,9 @@ export const metadata: Metadata = {
     images: [siteConfig.ogImage]
   },
   icons: {
-    icon: [{ url: "/brand/odin_logo_no_bg.png", type: "image/png", sizes: "512x512" }],
-    shortcut: ["/brand/odin_logo_no_bg.png"],
-    apple: [{ url: "/brand/odin_logo_no_bg.png", type: "image/png", sizes: "180x180" }]
+    icon: [{ url: "/brand/odin-clay-mark.svg", type: "image/svg+xml" }],
+    shortcut: ["/brand/odin-clay-mark.svg"],
+    apple: [{ url: "/brand/odin-clay-mark.svg", type: "image/svg+xml" }]
   }
 };
 

@@ -1,6 +1,14 @@
 <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="64" height="64" rx="14" fill="#05070C"/>
-  <path d="M8 32C14 22 22 17 32 17C42 17 50 22 56 32C50 42 42 47 32 47C22 47 14 42 8 32Z" stroke="#2B6CFF" stroke-width="3"/>
-  <circle cx="32" cy="32" r="5" fill="#2B6CFF"/>
-  <circle cx="32" cy="32" r="10" stroke="#B8C0CC" stroke-width="2"/>
+  <defs>
+    <linearGradient id="u" x1="6" y1="29" x2="58" y2="29" gradientUnits="userSpaceOnUse"><stop stop-color="#245CE8"/><stop offset=".5" stop-color="#3672FF"/><stop offset="1" stop-color="#65A4FF"/></linearGradient>
+    <linearGradient id="l" x1="6" y1="35" x2="58" y2="35" gradientUnits="userSpaceOnUse"><stop stop-color="#74E3ED"/><stop offset="1" stop-color="#25AFCB"/></linearGradient>
+    <filter id="s" x="1" y="10" width="62" height="48" filterUnits="userSpaceOnUse"><feDropShadow dx="1.5" dy="2" stdDeviation="1.5" flood-color="#7186B2" flood-opacity=".25"/></filter>
+  </defs>
+  <g filter="url(#s)">
+    <path d="M6 32C12 20 21 15 32 15C43 15 52 20 58 32C52 27 43 23 32 23C21 23 12 27 6 32Z" fill="url(#u)"/>
+    <path d="M6 32C12 44 21 49 32 49C43 49 52 44 58 32C52 37 43 41 32 41C21 41 12 37 6 32Z" fill="url(#l)"/>
+    <path d="M7 32C14 26 22 23 32 23C42 23 50 26 57 32C50 38 42 41 32 41C22 41 14 38 7 32Z" fill="white"/>
+    <circle cx="32" cy="32" r="8" fill="#17213B"/>
+    <circle cx="32" cy="32" r="4.7" stroke="#63D6E5" stroke-width="1.8"/>
+  </g>
 </svg>

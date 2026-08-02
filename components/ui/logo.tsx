@@ -10,16 +10,22 @@ export function Logo({ compact = false }: LogoProps) {
     <Link
       href="/"
       aria-label="ODIN homepage"
-      className="inline-flex items-center rounded-full px-1 py-1 transition hover:bg-white/5"
+      className="group inline-flex items-center gap-3 rounded-2xl px-1 py-1 transition"
     >
-      <Image
-        src="/brand/odin_logo_no_bg.png"
-        alt="ODIN logo"
-        width={compact ? 64 : 82}
-        height={compact ? 64 : 82}
-        className="h-auto w-auto object-contain"
-        priority
-      />
+      <span className="inline-flex rounded-2xl border border-white/90 bg-panel/70 p-1 shadow-[6px_6px_14px_rgba(105,126,170,.15),-5px_-5px_12px_rgba(255,255,255,.92),inset_1px_1px_0_white] transition duration-300 group-hover:-translate-y-0.5">
+        <Image
+          src="/brand/odin-clay-mark.svg"
+          alt=""
+          width={compact ? 46 : 56}
+          height={compact ? 46 : 56}
+          className="h-auto w-auto object-contain"
+          priority
+        />
+      </span>
+      <span className="flex items-center gap-2 leading-none">
+        <span className={`${compact ? "text-lg" : "text-xl"} font-bold tracking-[0.16em] text-text`}>ODIN</span>
+        <span className="rounded-full bg-blue/10 px-2 py-1 text-[9px] font-bold uppercase tracking-[0.2em] text-blue">ERP</span>
+      </span>
     </Link>
   );
 }

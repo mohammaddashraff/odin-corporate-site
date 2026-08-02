@@ -1,0 +1,37 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="upper" x1="68" y1="238" x2="445" y2="238" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#245CE8"/>
+      <stop offset="0.5" stop-color="#3672FF"/>
+      <stop offset="1" stop-color="#65A4FF"/>
+    </linearGradient>
+    <linearGradient id="lower" x1="65" y1="284" x2="447" y2="284" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#74E3ED"/>
+      <stop offset="0.55" stop-color="#49C7DD"/>
+      <stop offset="1" stop-color="#25AFCB"/>
+    </linearGradient>
+    <linearGradient id="core" x1="212" y1="208" x2="303" y2="304" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#243454"/>
+      <stop offset="1" stop-color="#101A32"/>
+    </linearGradient>
+    <filter id="soft" x="36" y="99" width="440" height="335" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="10" dy="14" stdDeviation="12" flood-color="#7186B2" flood-opacity="0.22"/>
+      <feDropShadow dx="-7" dy="-7" stdDeviation="10" flood-color="white" flood-opacity="0.8"/>
+    </filter>
+    <filter id="coreShadow" x="178" y="178" width="160" height="166" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="5" dy="8" stdDeviation="7" flood-color="#17213B" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#soft)">
+    <path d="M62 255C105 177 170 138 256 138C342 138 407 177 450 255C411 221 349 190 256 190C163 190 101 221 62 255Z" fill="url(#upper)"/>
+    <path d="M62 257C105 335 170 374 256 374C342 374 407 335 450 257C411 291 349 322 256 322C163 322 101 291 62 257Z" fill="url(#lower)"/>
+    <path d="M68 256C114 216 176 190 256 190C336 190 398 216 444 256C398 296 336 322 256 322C176 322 114 296 68 256Z" fill="white" fill-opacity="0.82"/>
+  </g>
+
+  <g filter="url(#coreShadow)">
+    <circle cx="256" cy="256" r="58" fill="url(#core)"/>
+    <circle cx="239" cy="237" r="13" fill="white" fill-opacity="0.2"/>
+    <circle cx="256" cy="256" r="35" stroke="#6EDDEA" stroke-width="8" stroke-opacity="0.9"/>
+  </g>
+</svg>
