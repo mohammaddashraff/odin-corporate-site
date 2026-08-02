@@ -1,16 +1,6 @@
 <svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="b" x1="76" y1="150" x2="442" y2="362" gradientUnits="userSpaceOnUse"><stop stop-color="#3478FF"/><stop offset="1" stop-color="#1458ED"/></linearGradient>
-    <linearGradient id="c" x1="76" y1="150" x2="442" y2="362" gradientUnits="userSpaceOnUse"><stop stop-color="#32D2DF"/><stop offset="1" stop-color="#18B9CE"/></linearGradient>
-  </defs>
-  <path d="M76 211C133 117 229 120 319 164C379 193 419 232 442 260" stroke="url(#c)" stroke-width="42"/>
-  <path d="M76 260C107 218 153 177 211 151C298 111 389 128 442 211" stroke="url(#b)" stroke-width="42"/>
-  <path d="M76 301C133 395 229 392 319 348C379 319 419 280 442 252" stroke="url(#c)" stroke-width="42"/>
-  <path d="M76 252C107 294 153 335 211 361C298 401 389 384 442 301" stroke="url(#b)" stroke-width="42"/>
-  <path d="M76 218C124 126 198 118 256 158" stroke="url(#c)" stroke-width="42"/>
-  <path d="M256 158C320 118 394 126 442 218" stroke="url(#b)" stroke-width="42"/>
-  <path d="M76 294C124 386 198 394 256 354" stroke="url(#c)" stroke-width="42"/>
-  <path d="M256 354C320 394 394 386 442 294" stroke="url(#b)" stroke-width="42"/>
-  <path d="M108 256C149 216 198 196 256 196C314 196 363 216 404 256C363 296 314 316 256 316C198 316 149 296 108 256Z" fill="white"/>
-  <circle cx="256" cy="256" r="58" fill="#0A214C"/>
+  <path d="M72 246L164 154H348L440 246H394L332 186H180L118 246H72Z" fill="#0A1833"/>
+  <path d="M72 266L164 358H348L440 266H394L332 326H180L118 266H72Z" fill="#0A1833"/>
+  <circle cx="256" cy="256" r="73" fill="white" stroke="#246CFF" stroke-width="28"/>
+  <circle cx="256" cy="256" r="24" fill="#0A1833"/>
 </svg>

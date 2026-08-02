@@ -1,40 +1,7 @@
 <svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="blue" x1="92" y1="151" x2="427" y2="365" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#3478FF"/>
-      <stop offset="1" stop-color="#1458ED"/>
-    </linearGradient>
-    <linearGradient id="cyan" x1="80" y1="156" x2="430" y2="356" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#32D2DF"/>
-      <stop offset="1" stop-color="#18B9CE"/>
-    </linearGradient>
-    <linearGradient id="iris" x1="219" y1="214" x2="298" y2="304" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#173464"/>
-      <stop offset="1" stop-color="#071B43"/>
-    </linearGradient>
-    <filter id="ribbonShadow" x="48" y="91" width="426" height="342" filterUnits="userSpaceOnUse">
-      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#174EA6" flood-opacity="0.15"/>
-    </filter>
-    <filter id="irisShadow" x="190" y="190" width="138" height="146" filterUnits="userSpaceOnUse">
-      <feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#071B43" flood-opacity="0.25"/>
-    </filter>
-  </defs>
-
-  <g filter="url(#ribbonShadow)">
-    <!-- Four interlocking ribbons form the Eye without a literal human-eye outline. -->
-    <path d="M76 211C133 117 229 120 319 164C379 193 419 232 442 260" stroke="url(#cyan)" stroke-width="42" stroke-linecap="butt"/>
-    <path d="M76 260C107 218 153 177 211 151C298 111 389 128 442 211" stroke="url(#blue)" stroke-width="42" stroke-linecap="butt"/>
-    <path d="M76 301C133 395 229 392 319 348C379 319 419 280 442 252" stroke="url(#cyan)" stroke-width="42" stroke-linecap="butt"/>
-    <path d="M76 252C107 294 153 335 211 361C298 401 389 384 442 301" stroke="url(#blue)" stroke-width="42" stroke-linecap="butt"/>
-    <path d="M76 218C124 126 198 118 256 158" stroke="url(#cyan)" stroke-width="42" stroke-linecap="butt"/>
-    <path d="M256 158C320 118 394 126 442 218" stroke="url(#blue)" stroke-width="42" stroke-linecap="butt"/>
-    <path d="M76 294C124 386 198 394 256 354" stroke="url(#cyan)" stroke-width="42" stroke-linecap="butt"/>
-    <path d="M256 354C320 394 394 386 442 294" stroke="url(#blue)" stroke-width="42" stroke-linecap="butt"/>
-  </g>
-
-  <path d="M108 256C149 216 198 196 256 196C314 196 363 216 404 256C363 296 314 316 256 316C198 316 149 296 108 256Z" fill="white" fill-opacity="0.97"/>
-  <g filter="url(#irisShadow)">
-    <circle cx="256" cy="256" r="58" fill="url(#iris)"/>
-    <circle cx="238" cy="236" r="11" fill="white" fill-opacity="0.12"/>
-  </g>
+  <!-- ODIN Eye: an architectural aperture built on a strict 8-point grid. -->
+  <path d="M72 246L164 154H348L440 246H394L332 186H180L118 246H72Z" fill="#0A1833"/>
+  <path d="M72 266L164 358H348L440 266H394L332 326H180L118 266H72Z" fill="#0A1833"/>
+  <circle cx="256" cy="256" r="73" fill="white" stroke="#246CFF" stroke-width="28"/>
+  <circle cx="256" cy="256" r="24" fill="#0A1833"/>
 </svg>

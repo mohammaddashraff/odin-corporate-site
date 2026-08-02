@@ -1,12 +1,7 @@
 <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="b" x1="8" y1="18" x2="56" y2="46" gradientUnits="userSpaceOnUse"><stop stop-color="#3478FF"/><stop offset="1" stop-color="#1458ED"/></linearGradient>
-    <linearGradient id="c" x1="8" y1="18" x2="56" y2="46" gradientUnits="userSpaceOnUse"><stop stop-color="#32D2DF"/><stop offset="1" stop-color="#18B9CE"/></linearGradient>
-  </defs>
-  <path d="M8 27C16 13 26 15 32 20" stroke="url(#c)" stroke-width="6"/>
-  <path d="M32 20C39 15 49 13 56 27" stroke="url(#b)" stroke-width="6"/>
-  <path d="M8 37C16 51 26 49 32 44" stroke="url(#c)" stroke-width="6"/>
-  <path d="M32 44C39 49 49 51 56 37" stroke="url(#b)" stroke-width="6"/>
-  <path d="M8 32C14 24 22 21 32 21C42 21 50 24 56 32C50 40 42 43 32 43C22 43 14 40 8 32Z" fill="white" stroke="url(#b)" stroke-width="4"/>
-  <circle cx="32" cy="32" r="8" fill="#0A214C"/>
+  <rect width="64" height="64" rx="14" fill="#F7F9FD"/>
+  <path d="M7 31L19 19H45L57 31H49L43 25H21L15 31H7Z" fill="#0A1833"/>
+  <path d="M7 33L19 45H45L57 33H49L43 39H21L15 33H7Z" fill="#0A1833"/>
+  <circle cx="32" cy="32" r="9" fill="#F7F9FD" stroke="#246CFF" stroke-width="4"/>
+  <circle cx="32" cy="32" r="3" fill="#0A1833"/>
 </svg>
