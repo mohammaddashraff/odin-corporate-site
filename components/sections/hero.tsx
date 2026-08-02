@@ -69,11 +69,11 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.18 }}
           className="relative"
         >
-          <div className="absolute -inset-8 -z-10 rounded-full bg-blue/10 blur-3xl" />
-          <div className="overflow-hidden rounded-[1.35rem] border border-silver/25 bg-panel shadow-2xl shadow-black/50">
+          <div className="absolute -inset-10 -z-10 rounded-full bg-gradient-to-br from-pink-200/55 via-blue/20 to-cyan-200/55 blur-3xl" />
+          <div className="overflow-hidden rounded-[1.65rem] border border-white/90 bg-panel/80 shadow-[22px_22px_46px_rgba(105,126,170,.2),-16px_-16px_38px_rgba(255,255,255,.96),inset_1px_1px_0_white]">
             <div className="flex items-center justify-between border-b border-stroke px-4 py-3 text-[11px] uppercase tracking-[0.18em] text-muted">
               <span>{ar ? "لوحة الإدارة الفعلية" : "Live executive command center"}</span>
-              <span className="flex items-center gap-2"><i className="h-2 w-2 rounded-full bg-emerald-400" /> {ar ? "متصل" : "Live"}</span>
+              <span className="flex items-center gap-2"><i className="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_0_4px_rgba(16,185,129,.12)]" /> {ar ? "متصل" : "Live"}</span>
             </div>
             <Image
               src="/screenshots/erp-dashboard.png"

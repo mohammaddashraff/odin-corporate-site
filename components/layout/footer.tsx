@@ -11,7 +11,7 @@ export function Footer() {
   const { language, t } = useLanguage();
 
   return (
-    <footer className="border-t border-stroke bg-panel/40">
+    <footer className="border-t border-white/80 bg-panel/60 shadow-[0_-12px_34px_rgba(105,126,170,.1)] backdrop-blur-xl">
       <Container className="grid gap-10 py-12 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
           <Logo />

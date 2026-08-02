@@ -16,7 +16,7 @@ export function Header() {
   const { language, setLanguage, t } = useLanguage();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-stroke bg-bg/90 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-white/80 bg-panel/75 shadow-[0_10px_30px_rgba(105,126,170,.12)] backdrop-blur-xl">
       <Container className="flex min-h-[74px] items-center justify-between gap-6">
         <Logo compact />
 
@@ -27,8 +27,8 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`rounded-xl px-3 py-2 text-sm transition ${
-                  active ? "text-blue" : "text-muted hover:text-text"
+                className={`rounded-2xl px-3 py-2 text-sm font-medium transition ${
+                  active ? "bg-white/75 text-blue shadow-[4px_4px_10px_rgba(105,126,170,.13),-3px_-3px_8px_white]" : "text-muted hover:bg-white/55 hover:text-text"
                 }`}
               >
                 {t(item.label)}
@@ -41,7 +41,7 @@ export function Header() {
           <button
             type="button"
             onClick={() => setLanguage(language === "en" ? "ar" : "en")}
-            className="rounded-xl border border-stroke px-3 py-2 text-sm font-semibold text-silver transition hover:border-blue/60 hover:text-text"
+            className="rounded-2xl border border-white/90 bg-panel/75 px-3 py-2 text-sm font-semibold text-silver shadow-[5px_5px_12px_rgba(105,126,170,.14),-4px_-4px_10px_white] transition hover:-translate-y-0.5 hover:text-blue"
             aria-label={language === "en" ? "Switch to Arabic" : "Switch to English"}
           >
             {language === "en" ? "العربية" : "EN"}
@@ -53,7 +53,7 @@ export function Header() {
 
         <button
           type="button"
-          className="rounded-xl border border-stroke px-3 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-silver md:hidden"
+          className="rounded-2xl border border-white/90 bg-panel/75 px-3 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-silver shadow-[5px_5px_12px_rgba(105,126,170,.14),-4px_-4px_10px_white] md:hidden"
           aria-expanded={open}
           aria-label="Toggle navigation menu"
           onClick={() => setOpen((prev) => !prev)}
@@ -63,7 +63,7 @@ export function Header() {
       </Container>
 
       {open ? (
-        <div className="border-t border-stroke bg-panel/95 md:hidden">
+        <div className="border-t border-white/80 bg-panel/95 shadow-[0_18px_30px_rgba(105,126,170,.14)] md:hidden">
           <Container className="flex flex-col py-4">
             {navItems.map((item) => {
               const active = pathname === item.href;

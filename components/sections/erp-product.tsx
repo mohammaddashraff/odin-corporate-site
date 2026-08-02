@@ -72,7 +72,7 @@ export function ERPProduct() {
         </Container>
       </section>
 
-      <section className="border-y border-stroke bg-panel/55 py-16">
+      <section className="border-y border-white/80 bg-white/35 py-16 shadow-[inset_0_18px_40px_rgba(255,255,255,.65),inset_0_-16px_36px_rgba(105,126,170,.07)] backdrop-blur-sm">
         <Container className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.26em] text-blue">{ar ? "تحكم يمكنك إثباته" : "Control you can prove"}</p>
@@ -85,7 +85,7 @@ export function ERPProduct() {
               ar ? ["صلاحيات واضحة", "تختلف الشاشات والإجراءات حسب دور المدير والمحاسب والمراجع والكاشير والمخزن."] : ["Role-aware governance", "Navigation and actions change for administrators, accountants, auditors, cashiers, and warehouse teams."],
               ar ? ["عربي وإنجليزي", "واجهة عربية كاملة باتجاه RTL مع استمرار اختيار اللغة عبر التنقل وتسجيل الدخول."] : ["English and Arabic", "A complete RTL Arabic interface with language persistence across navigation and sign-in."]
             ].map(([title, text]) => (
-              <div key={title} className="rounded-2xl border border-stroke bg-bg/45 p-5">
+              <div key={title} className="rounded-[1.4rem] border border-white/90 bg-panel/70 p-5 shadow-[10px_10px_22px_rgba(105,126,170,.14),-8px_-8px_20px_rgba(255,255,255,.9),inset_1px_1px_0_white]">
                 <h3 className="font-semibold text-text">{title}</h3><p className="mt-2 text-sm leading-6 text-muted">{text}</p>
               </div>
             ))}
@@ -95,8 +95,8 @@ export function ERPProduct() {
 
       <section className="section-spacing">
         <Container>
-          <div className="relative overflow-hidden rounded-[1.75rem] border border-blue/35 bg-blue/[0.09] p-8 md:p-12">
-            <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-blue/15 blur-3xl" />
+          <div className="relative overflow-hidden rounded-[2rem] border border-white/90 bg-gradient-to-br from-blue-100/90 via-white/70 to-pink-100/80 p-8 shadow-[20px_20px_42px_rgba(105,126,170,.18),-15px_-15px_34px_rgba(255,255,255,.95),inset_1px_1px_0_white] md:p-12">
+            <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-cyan-300/25 blur-3xl" />
             <div className="relative max-w-3xl">
               <p className="text-xs font-semibold uppercase tracking-[0.26em] text-blue">{ar ? "شاهد دورة العمل كاملة" : "Run the workflow yourself"}</p>
               <h2 className="mt-4 text-3xl font-semibold text-text md:text-5xl">{ar ? "اختبر ODIN ERP على بيانات تشغيلية حقيقية." : "Experience ODIN ERP with real operating data."}</h2>

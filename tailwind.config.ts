@@ -36,11 +36,11 @@ const config: Config = {
         ]
       },
       boxShadow: {
-        panel: "0 8px 28px rgba(0, 0, 0, 0.28)",
-        hover: "0 14px 34px rgba(0, 0, 0, 0.34)"
+        panel: "16px 16px 34px rgba(105,126,170,.18), -12px -12px 28px rgba(255,255,255,.9)",
+        hover: "20px 20px 42px rgba(105,126,170,.22), -14px -14px 30px rgba(255,255,255,.96)"
       },
       backgroundImage: {
-        "odin-grid": "radial-gradient(circle at 1px 1px, rgba(184, 192, 204, 0.12) 1px, transparent 0)"
+        "odin-grid": "radial-gradient(circle at 1px 1px, rgba(54, 114, 255, 0.13) 1px, transparent 0)"
       }
     }
   },
