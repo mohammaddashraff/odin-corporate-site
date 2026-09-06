@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./home-experience.css";
 import { AnalyticsPlaceholder } from "@/components/analytics-placeholder";
 import { LanguageProvider } from "@/components/language-provider";
 import { Footer } from "@/components/layout/footer";

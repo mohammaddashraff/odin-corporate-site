@@ -22,10 +22,13 @@ The production build includes ESLint and TypeScript checks. Standalone checks ar
 
 - `content/solutions.ts`: bilingual solution names, descriptions, workflow illustrations, project process, and FAQs.
 - `components/sections/software-home.tsx`: homepage and shared marketing sections.
+- `components/sections/software-preview.tsx`: six labeled software concepts and a visibility-aware, pausable solution tour.
+- `components/sections/software-stories.tsx`: real ERP screen gallery, industry scenarios, and interactive integration map.
 - `components/sections/company-pages.tsx`: solutions, individual solution pages, services, industries, and about.
 - `components/contact/contact-form.tsx`: bilingual project inquiry email preparation.
 - `components/layout/`: site navigation and footer.
 - `app/globals.css`: light navy/blue identity, responsive rules, and locally hosted fonts.
+- `app/home-experience.css`: richer workspace previews, visual sections, and motion with a reduced-motion fallback.
 - `lib/site.ts`: company name, contact email, domain, navigation, and metadata.
 - `content/insights.ts`: existing English archive articles.
 - `PRODUCT.md` and `DESIGN.md`: product context and implemented visual system.
@@ -34,7 +37,7 @@ The six solution detail routes are generated from the solution catalog. Unknown 
 
 ## Contact behavior
 
-The inquiry form validates project details and prepares an email addressed to `hello@odin-ltd.com`. The visitor reviews it and explicitly opens their email app to send it. A copy-details action is also available. The page does not claim delivery.
+The inquiry form validates project details and prepares an email addressed to `help@odin-ltd.com`. The visitor reviews it and explicitly opens their email app to send it. A copy-details action is also available. The page does not claim delivery.
 
 There is currently no configured transactional email provider, inbox API, CRM webhook, or durable submission database. The old file-writing API has been retired: `POST /api/contact` returns 503 with email guidance and neither stores nor logs inquiry data. A real delivery integration can be added separately.
 

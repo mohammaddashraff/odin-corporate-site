@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import type { Route } from "next";
 import { useRef, useState } from "react";
@@ -8,12 +7,22 @@ import { Container } from "@/components/ui/container";
 import { Arrow, ButtonLink } from "@/components/ui/button-link";
 import { OdinMark } from "@/components/ui/logo";
 import {
+  CheckIcon,
+  SoftwarePreview,
+  SolutionIcon,
+  useSolutionTour,
+} from "./software-preview";
+import {
+  ConnectedSystems,
+  IndustryStories,
+  ProductShowcase,
+} from "./software-stories";
+import {
   companyFaqs,
   deliverySteps,
   solutions,
   type Solution,
 } from "@/content/solutions";
-import { siteConfig } from "@/lib/site";
 
 export function SolutionVisual({
   solution = solutions[0],
@@ -77,10 +86,22 @@ export function SolutionVisual({
 export function SolutionExplorer() {
   const { isArabic: ar } = useLanguage();
   const [active, setActive] = useState(0);
+  const tour = useSolutionTour(() =>
+    setActive((current) => (current + 1) % solutions.length),
+  );
   const tabs = useRef<(HTMLButtonElement | null)[]>([]);
   const solution = solutions[active];
   return (
-    <div className="solution-explorer">
+    <div
+      className="solution-explorer"
+      ref={tour.sceneRef}
+      onMouseEnter={() => tour.setHovered(true)}
+      onMouseLeave={() => tour.setHovered(false)}
+      onFocusCapture={(event) => {
+        if (!(event.target as HTMLElement).closest("[data-tour-control]"))
+          tour.setPlaying(false);
+      }}
+    >
       <div
         className="explorer-tabs"
         role="tablist"
@@ -97,7 +118,10 @@ export function SolutionExplorer() {
             aria-selected={active === index}
             aria-controls="solution-panel"
             tabIndex={active === index ? 0 : -1}
-            onClick={() => setActive(index)}
+            onClick={() => {
+              tour.setPlaying(false);
+              setActive(index);
+            }}
             onKeyDown={(event) => {
               let next = index;
               if (event.key === "ArrowRight")
@@ -110,11 +134,20 @@ export function SolutionExplorer() {
               else if (event.key === "End") next = solutions.length - 1;
               else return;
               event.preventDefault();
+              tour.setPlaying(false);
               setActive(next);
               tabs.current[next]?.focus();
             }}
           >
             {item.short === "APP" ? (ar ? "موبايل" : "Mobile") : item.short}
+            {active === index && tour.playing && (
+              <span
+                className="tour-progress"
+                key={`${item.slug}-${tour.playing}-${tour.running}`}
+                data-running={tour.running}
+                aria-hidden="true"
+              />
+            )}
           </button>
         ))}
       </div>
@@ -124,12 +157,48 @@ export function SolutionExplorer() {
         aria-labelledby={`solution-tab-${solution.slug}`}
         tabIndex={0}
       >
-        <SolutionVisual solution={solution} />
+        <SoftwarePreview solution={solution} />
       </div>
       <div className="explorer-footer">
-        <span>
-          {ar ? "احتياجك هو نقطة البداية." : "Your needs. Our starting point."}
-        </span>
+        <button
+          className="tour-control"
+          type="button"
+          data-tour-control
+          disabled={tour.reduced}
+          onClick={() => tour.setPlaying((current) => !current)}
+          aria-label={
+            tour.reduced
+              ? ar
+                ? "الحركة التلقائية متوقفة حسب إعداداتك"
+                : "Autoplay disabled by your motion preference"
+              : tour.playing
+                ? ar
+                  ? "إيقاف جولة الحلول"
+                  : "Pause solution tour"
+                : ar
+                  ? "تشغيل جولة الحلول"
+                  : "Play solution tour"
+          }
+        >
+          <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true">
+            {tour.playing ? (
+              <path d="M4 3h3v10H4zM10 3h3v10h-3z" fill="currentColor" />
+            ) : (
+              <path d="m5 3 8 5-8 5Z" fill="currentColor" />
+            )}
+          </svg>
+          {tour.reduced
+            ? ar
+              ? "حركة أقل"
+              : "Reduced motion"
+            : tour.playing
+              ? ar
+                ? "إيقاف الجولة"
+                : "Pause tour"
+              : ar
+                ? "شغّل الجولة"
+                : "Play tour"}
+        </button>
         <Link href={`/solutions/${solution.slug}` as Route}>
           {ar ? "استكشف الحل" : "Explore solution"}
           <Arrow />
@@ -172,6 +241,7 @@ export function SolutionGrid({ heading = true }: { heading?: boolean }) {
               href={`/solutions/${solution.slug}` as Route}
             >
               <div className="solution-link-top">
+                <SolutionIcon slug={solution.slug} />
                 <h3>
                   {t(solution.name)}
                   {["ERP", "HR", "CRM", "LMS"].includes(solution.short) && (
@@ -184,6 +254,14 @@ export function SolutionGrid({ heading = true }: { heading?: boolean }) {
                 <Arrow diagonal />
               </div>
               <p>{t(solution.description)}</p>
+              <ul className="solution-feature-preview">
+                {solution.features.map((feature) => (
+                  <li key={feature.en}>
+                    <CheckIcon />
+                    {t(feature)}
+                  </li>
+                ))}
+              </ul>
               <span className="text-link">
                 {ar ? "استكشف الحل" : "Explore solution"}
               </span>
@@ -242,6 +320,24 @@ export function ProcessSection() {
               </div>
               <h3>{t(step.title)}</h3>
               <p>{t(step.text)}</p>
+              <div className="process-deliverable">
+                <CheckIcon />
+                <span>
+                  {ar
+                    ? [
+                        "خريطة العمل والأولويات",
+                        "تجربة المستخدم وخطة التنفيذ",
+                        "نسخة قابلة للاختبار",
+                        "إطلاق وخطوات التطوير",
+                      ][index]
+                    : [
+                        "Workflow map & priorities",
+                        "User journeys & build plan",
+                        "A testable working solution",
+                        "Launch & next-step roadmap",
+                      ][index]}
+                </span>
+              </div>
             </li>
           ))}
         </ol>
@@ -316,7 +412,7 @@ export function FAQSection() {
 export function SoftwareHome() {
   const { isArabic: ar } = useLanguage();
   return (
-    <>
+    <div className="home-experience">
       <section className="home-hero">
         <Container className="hero-layout">
           <div className="hero-copy">
@@ -374,51 +470,12 @@ export function SoftwareHome() {
         </Container>
       </div>
       <SolutionGrid />
+      <ProductShowcase />
+      <IndustryStories />
+      <ConnectedSystems />
       <ProcessSection />
-      <section className="section-spacing">
-        <Container className="featured-project">
-          <div className="project-image">
-            <Image
-              src="/screenshots/erp-dashboard.png"
-              alt={
-                ar
-                  ? "واجهة نظام ODIN ERP الحالي"
-                  : "The existing ODIN ERP dashboard"
-              }
-              width={1440}
-              height={900}
-              sizes="(max-width: 800px) 100vw, 55vw"
-            />
-            <div className="project-image-caption">
-              <span>ODIN ERP</span>
-              <span>{ar ? "استكشف المنتج" : "Product spotlight"}</span>
-            </div>
-          </div>
-          <div>
-            <h2>
-              {ar
-                ? "شوف الحل على أرض الواقع."
-                : "See the thinking. Explore the software."}
-            </h2>
-            <p className="body-copy">
-              {ar
-                ? "ODIN ERP مثال على الحلول اللي بنقدمها: حسابات ومخزون ومبيعات وعمليات مترابطة. استكشف النظام الحالي، وبعدها نتكلم عن احتياج شركتك."
-                : "ODIN ERP is one example of what we do: connected accounting, inventory, sales, and business operations. Explore the existing platform, then let's talk about yours."}
-            </p>
-            <div className="project-actions">
-              <ButtonLink href={siteConfig.demoUrl} variant="secondary">
-                {ar ? "استكشف نسخة ERP" : "Explore the ERP demo"}
-              </ButtonLink>
-              <Link className="text-link" href="/solutions/erp">
-                {ar ? "عن حلول ERP" : "About ERP solutions"}
-                <Arrow />
-              </Link>
-            </div>
-          </div>
-        </Container>
-      </section>
       <FAQSection />
       <ProjectCTA />
-    </>
+    </div>
   );
 }

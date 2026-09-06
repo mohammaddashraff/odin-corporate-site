@@ -8,8 +8,8 @@ import {
   ProcessSection,
   ProjectCTA,
   SolutionGrid,
-  SolutionVisual,
 } from "@/components/sections/software-home";
+import { SoftwarePreview } from "@/components/sections/software-preview";
 import { copy, type Solution } from "@/content/solutions";
 import { siteConfig } from "@/lib/site";
 
@@ -59,7 +59,7 @@ export function SolutionPageContent({ solution }: { solution: Solution }) {
                 {ar ? "ناقش الحل المناسب ليك" : "Discuss your solution"}
               </ButtonLink>
             </div>
-            <SolutionVisual solution={solution} />
+            <SoftwarePreview solution={solution} />
           </div>
         </Container>
       </section>

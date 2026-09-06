@@ -23,10 +23,11 @@ Open decisions: commercial packages, specific commitments for each project, veri
 ## Brand Commitments
 
 The user explicitly changed the identity to ODIN Software Solutions and selected a professional light identity using navy and blue. They selected direct implementation in code followed by reviewing the working website.
+After reviewing the first working version, the user requested a fuller, more visually substantial website with expressive animation and richer interactive content. Retain the approved palette and company positioning; use concrete software experiences, not invented business proof, to increase density.
 
 ## Evidence on Hand
 
-Existing ODIN brand assets in public/brand and ERP screenshots in public/screenshots. Existing ERP demo URL is retained as one solution example, not the company-wide offer. Contact email from current site: hello@odin-ltd.com.
+Existing ODIN brand assets in public/brand and ERP screenshots in public/screenshots. Existing ERP demo URL is retained as one solution example, not the company-wide offer. The user confirmed help@odin-ltd.com as the contact address for new leads.
 The repository contains older case-study and testimonial claims; they are not newly verified evidence and should not become proof for the broader company.
 
 ## Product Principles

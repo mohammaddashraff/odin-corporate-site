@@ -34,7 +34,7 @@ export default function PrivacyPage() {
           </p>
           <p>
             You may request access, correction, or deletion of personal data by
-            contacting hello@odin-ltd.com. We will respond in accordance with
+            contacting help@odin-ltd.com. We will respond in accordance with
             applicable regulations.
           </p>
         </div>

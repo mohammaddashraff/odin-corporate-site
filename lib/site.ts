@@ -8,7 +8,7 @@ export const siteConfig = {
   url: "https://odin-ltd.com",
   demoUrl: "https://odin-erp-web.vercel.app/",
   ogImage: "/brand/og-software-solutions.png",
-  email: "hello@odin-ltd.com",
+  email: "help@odin-ltd.com",
 };
 export const navItems = [
   { label: { en: "Solutions", ar: "الحلول" }, href: "/solutions" },
