@@ -1,10 +1,8 @@
 import type { MetadataRoute } from "next";
-
 import { insightPosts } from "@/content/insights";
+import { solutions } from "@/content/solutions";
 import { siteConfig } from "@/lib/site";
-
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = siteConfig.url;
   const staticRoutes = [
     "",
     "/services",
@@ -15,21 +13,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/contact",
     "/insights",
     "/privacy",
-    "/terms"
+    "/terms",
+    ...solutions.map((solution) => `/solutions/${solution.slug}`),
   ];
-
   return [
     ...staticRoutes.map((route) => ({
-      url: `${base}${route}`,
-      lastModified: new Date(),
-      changeFrequency: "weekly" as const,
-      priority: route === "" ? 1 : 0.8
+      url: `${siteConfig.url}${route}`,
+      changeFrequency: "monthly" as const,
+      priority: route === "" ? 1 : 0.8,
     })),
     ...insightPosts.map((post) => ({
-      url: `${base}/insights/${post.slug}`,
+      url: `${siteConfig.url}/insights/${post.slug}`,
       lastModified: new Date(post.publishedAt),
       changeFrequency: "monthly" as const,
-      priority: 0.7
-    }))
+      priority: 0.7,
+    })),
   ];
 }

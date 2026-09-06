@@ -17,7 +17,7 @@ export function Testimonials() {
           {testimonials.map((item, index) => (
             <Reveal key={item.company} delay={index * 0.08}>
               <article className="surface h-full p-6">
-                <p className="text-sm leading-relaxed text-muted">\"{item.quote}\"</p>
+                <p className="text-sm leading-relaxed text-muted">&ldquo;{item.quote}&rdquo;</p>
                 <p className="mt-6 text-sm font-semibold text-text">{item.name}</p>
                 <p className="mt-1 text-xs uppercase tracking-[0.18em] text-silver">{item.company}</p>
               </article>

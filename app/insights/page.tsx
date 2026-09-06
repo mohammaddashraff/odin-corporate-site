@@ -9,17 +9,20 @@ import { pageMetadata } from "@/lib/site";
 export const metadata = pageMetadata(
   "Insights",
   "ODIN insights on enterprise automation, CRM architecture, operational dashboards, and AI inside business systems.",
-  "/insights"
+  "/insights",
 );
 
 export default function InsightsPage() {
   return (
     <section className="section-spacing">
       <Container>
-        <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Insights" }]} />
+        <Breadcrumbs
+          items={[{ label: "Home", href: "/" }, { label: "Insights" }]}
+        />
         <h1 className="text-4xl font-semibold md:text-5xl">Insights</h1>
         <p className="mt-4 max-w-3xl text-base leading-relaxed text-muted">
-          Practical articles for leaders building structured business systems with automation and intelligent workflows.
+          Practical articles for leaders building structured business systems
+          with automation and intelligent workflows.
         </p>
 
         <div className="mt-10 grid gap-5 md:grid-cols-2">
@@ -27,12 +30,15 @@ export default function InsightsPage() {
             const href = `/insights/${post.slug}` as Route;
 
             return (
-              <article key={post.slug} className="surface p-6 transition hover:-translate-y-1">
+              <article
+                key={post.slug}
+                className="surface p-6 transition hover:-translate-y-1"
+              >
                 <p className="text-xs uppercase tracking-[0.18em] text-silver">
                   {new Date(post.publishedAt).toLocaleDateString("en-US", {
                     year: "numeric",
                     month: "short",
-                    day: "numeric"
+                    day: "numeric",
                   })}
                   {" | "}
                   {post.readTime}
@@ -42,8 +48,13 @@ export default function InsightsPage() {
                     {post.title}
                   </Link>
                 </h2>
-                <p className="mt-3 text-sm leading-relaxed text-muted md:text-base">{post.excerpt}</p>
-                <Link href={href} className="mt-6 inline-flex text-sm text-blue">
+                <p className="mt-3 text-sm leading-relaxed text-muted md:text-base">
+                  {post.excerpt}
+                </p>
+                <Link
+                  href={href}
+                  className="mt-6 inline-flex text-sm text-blue"
+                >
                   Read article
                 </Link>
               </article>

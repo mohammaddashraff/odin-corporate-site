@@ -1,90 +1,53 @@
-# ODIN Corporate Website
+# ODIN Software Solutions
 
-Production-ready multi-page corporate website for ODIN built with Next.js App Router, TypeScript, and TailwindCSS.
+Corporate website for ODIN Software Solutions: custom software, ERP, HR, CRM, LMS, education systems, and mobile applications.
 
-## Stack
-
-- Next.js 14+ (App Router)
-- TypeScript
-- TailwindCSS
-- Framer Motion (subtle motion)
-- API Route form handling (`/api/contact`)
-
-## Quick Start
+## Development
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
-Open `http://localhost:3000`.
-
-## Scripts
+## Verification and production
 
 ```bash
-npm run dev
 npm run build
 npm run start
-npm run lint
-npm run typecheck
 ```
 
-## Project Structure
+The production build includes ESLint and TypeScript checks. Standalone checks are available through `npm run lint` and `npm run typecheck`.
 
-- `app/`: routes and metadata-driven SEO pages
-- `components/`: reusable UI/layout/sections
-- `content/`: blog data, service data, contact submission store
-- `lib/`: shared config and metadata helpers
-- `public/brand/`: ODIN brand assets and placeholders
+## Editing the website
 
-## Content Editing
+- `content/solutions.ts`: bilingual solution names, descriptions, workflow illustrations, project process, and FAQs.
+- `components/sections/software-home.tsx`: homepage and shared marketing sections.
+- `components/sections/company-pages.tsx`: solutions, individual solution pages, services, industries, and about.
+- `components/contact/contact-form.tsx`: bilingual project inquiry email preparation.
+- `components/layout/`: site navigation and footer.
+- `app/globals.css`: light navy/blue identity, responsive rules, and locally hosted fonts.
+- `lib/site.ts`: company name, contact email, domain, navigation, and metadata.
+- `content/insights.ts`: existing English archive articles.
+- `PRODUCT.md` and `DESIGN.md`: product context and implemented visual system.
 
-- Core site copy and cards: `content/site-content.ts`
-- Insights posts: `content/insights.ts`
-- Contact submissions storage: `content/contact-submissions.json`
-- Site metadata defaults and nav items: `lib/site.ts`
+The six solution detail routes are generated from the solution catalog. Unknown solution slugs return 404. The existing ERP demo remains a single product example. Existing case-study, legal, and article content is retained.
 
-## SEO
+## Contact behavior
 
-- Per-page metadata in route files
-- `app/sitemap.ts` generates sitemap.xml
-- `app/robots.ts` generates robots.txt
-- OpenGraph image placeholder: `public/brand/og-placeholder.svg`
+The inquiry form validates project details and prepares an email addressed to `hello@odin-ltd.com`. The visitor reviews it and explicitly opens their email app to send it. A copy-details action is also available. The page does not claim delivery.
 
-## Contact Form Flow
+There is currently no configured transactional email provider, inbox API, CRM webhook, or durable submission database. The old file-writing API has been retired: `POST /api/contact` returns 503 with email guidance and neither stores nor logs inquiry data. A real delivery integration can be added separately.
 
-- UI: `components/contact/contact-form.tsx`
-- Backend handler: `app/api/contact/route.ts`
-- Current behavior:
-  - Validates required fields
-  - Writes submission to `content/contact-submissions.json`
-  - Logs payload to server console
-  - Includes placeholder comment for email/CRM integration
+## Brand assets
 
-## Analytics Placeholder
+The geometric ODIN mark lives in `components/ui/logo.tsx`; the matching favicon is `app/icon.svg`. The share image is `public/brand/og-software-solutions.png`. Manrope and Noto Sans Arabic are hosted in `public/fonts` with their SIL Open Font Licenses.
 
-No tracking runs by default.
+## Deployment
 
-Enable placeholder script via:
+The existing GitHub repository is `mohammaddashraff/odin-corporate-site`. Vercel tracks the production branch `main`. Production domains are `odin-ltd.com` and `odin-corporate-site.vercel.app`.
 
-```bash
-NEXT_PUBLIC_ENABLE_ANALYTICS=true
-```
+A successful push to the connected branch should trigger Vercel. Check the resulting deployment and live domain after publishing. No new environment variables are needed for this rebrand.
 
-Injected by `components/analytics-placeholder.tsx`.
+## Analytics
 
-## Deployment (Vercel)
-
-1. Push repository to Git provider.
-2. Import project in Vercel.
-3. Set optional environment variable:
-   - `NEXT_PUBLIC_ENABLE_ANALYTICS`
-4. Deploy.
-
-## Notes
-
-- Dark-first UI is default.
-- Branding assets include:
-  - `public/brand/odin-eye.svg`
-  - `public/brand/odin-wordmark.svg`
-- 404 page and loading state include ODIN Eye motif treatment.
+No tracking runs by default. The existing `NEXT_PUBLIC_ENABLE_ANALYTICS` flag controls a placeholder only.

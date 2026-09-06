@@ -1,13 +1,18 @@
+"use client";
+import { useLanguage } from "@/components/language-provider";
 import { Container } from "@/components/ui/container";
-import { Logo } from "@/components/ui/logo";
-
+import { OdinMark } from "@/components/ui/logo";
 export default function Loading() {
+  const { isArabic: ar } = useLanguage();
   return (
-    <section className="flex min-h-[60vh] items-center justify-center">
-      <Container className="text-center">
-        <div className="mx-auto w-fit animate-pulse rounded-2xl border border-stroke bg-panel/70 px-8 py-6">
-          <Logo />
-          <p className="mt-4 text-xs uppercase tracking-[0.2em] text-muted">Calibrating Odin&apos;s Eye...</p>
+    <section className="section-spacing" aria-busy="true">
+      <Container>
+        <div
+          className="flex items-center justify-center gap-4 text-blue"
+          role="status"
+        >
+          <OdinMark />
+          <span>{ar ? "جاري تحميل الصفحة…" : "Loading page…"}</span>
         </div>
       </Container>
     </section>

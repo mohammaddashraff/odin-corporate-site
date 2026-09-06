@@ -1,56 +1,61 @@
 "use client";
-
 import Link from "next/link";
-
+import type { Route } from "next";
 import { useLanguage } from "@/components/language-provider";
 import { Container } from "@/components/ui/container";
 import { Logo } from "@/components/ui/logo";
 import { navItems, siteConfig } from "@/lib/site";
-
+import { solutions } from "@/content/solutions";
 export function Footer() {
-  const { language, t } = useLanguage();
-
+  const { isArabic: ar, t } = useLanguage();
   return (
-    <footer className="border-t border-white/80 bg-panel/60 shadow-[0_-12px_34px_rgba(105,126,170,.1)] backdrop-blur-xl">
-      <Container className="grid gap-10 py-12 md:grid-cols-[1.4fr_1fr_1fr]">
-        <div>
-          <Logo />
-          <p className="mt-4 max-w-md text-sm leading-relaxed text-muted">
-            {language === "en"
-              ? "ODIN ERP connects accounting, sales, purchasing, inventory, POS, banking, approvals, and reporting in one controlled platform."
-              : "يجمع ODIN ERP المحاسبة والمبيعات والمشتريات والمخزون ونقاط البيع والبنوك والموافقات والتقارير في منصة واحدة محكمة."}
-          </p>
-        </div>
-
-        <div>
-          <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-silver">{language === "en" ? "Navigation" : "التنقل"}</h3>
-          <ul className="mt-4 space-y-2 text-sm text-muted">
-            {navItems.map((item) => (
-              <li key={item.href}>
-                <Link className="transition hover:text-blue" href={item.href}>
+    <footer className="site-footer">
+      <Container>
+        <div className="footer-main">
+          <div className="footer-brand">
+            <Logo />
+            <p>
+              {ar
+                ? "حلول برمجية مبنية حول شغلك. من أول فكرة للي جاي بعدها."
+                : "Software built around your business. From the first idea to what comes next."}
+            </p>
+            <a href={`mailto:${siteConfig.email}`} dir="ltr">
+              {siteConfig.email}
+            </a>
+          </div>
+          <div>
+            <h2>{ar ? "الحلول" : "Solutions"}</h2>
+            {solutions.map((solution) => (
+              <Link
+                key={solution.slug}
+                href={`/solutions/${solution.slug}` as Route}
+              >
+                {t(solution.name)}
+              </Link>
+            ))}
+          </div>
+          <div>
+            <h2>{ar ? "الشركة" : "Company"}</h2>
+            {navItems
+              .filter((item) => item.href !== "/solutions")
+              .map((item) => (
+                <Link key={item.href} href={item.href}>
                   {t(item.label)}
                 </Link>
-              </li>
-            ))}
-          </ul>
+              ))}
+            <Link href="/insights">{ar ? "المقالات" : "Insights"}</Link>
+            <Link href="/contact">{ar ? "تواصل معنا" : "Contact"}</Link>
+          </div>
         </div>
-
-        <div>
-          <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-silver">{language === "en" ? "Contact" : "تواصل معنا"}</h3>
-          <p className="mt-4 text-sm text-muted">{language === "en" ? "Email" : "البريد الإلكتروني"}: {siteConfig.email}</p>
-          <div className="mt-6 flex gap-3">
-            <Link href="/privacy" className="text-sm text-muted transition hover:text-blue">
-              {language === "en" ? "Privacy" : "الخصوصية"}
-            </Link>
-            <Link href="/terms" className="text-sm text-muted transition hover:text-blue">
-              {language === "en" ? "Terms" : "الشروط"}
-            </Link>
+        <div className="footer-bottom">
+          <p>© {new Date().getFullYear()} ODIN Software Solutions.</p>
+          <div>
+            <Link href="/privacy">{ar ? "الخصوصية" : "Privacy"}</Link>
+            <Link href="/terms">{ar ? "الشروط" : "Terms"}</Link>
+            <a href="#main-content">{ar ? "للأعلى" : "Back to top"}</a>
           </div>
         </div>
       </Container>
-      <div className="border-t border-stroke py-4 text-center text-xs text-muted">
-        <Container>(c) {new Date().getFullYear()} ODIN ERP. {language === "en" ? "All rights reserved." : "جميع الحقوق محفوظة."}</Container>
-      </div>
     </footer>
   );
 }

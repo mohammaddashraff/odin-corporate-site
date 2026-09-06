@@ -8,3 +8,8 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 .idea/
+
+*.tsbuildinfo
+.playwright-cli/
+.impeccable/review/
+output/playwright/

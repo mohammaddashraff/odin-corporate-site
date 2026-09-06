@@ -1,34 +1,30 @@
 import type { Metadata } from "next";
 
 export const siteConfig = {
-  name: "ODIN ERP",
-  tagline: "One ERP. Total Business Control.",
+  name: "ODIN Software Solutions",
+  tagline: "Software built around your business.",
   description:
-    "ODIN ERP unifies accounting, sales, purchasing, inventory, POS, banking, approvals, and reporting in one auditable business platform.",
+    "Custom software solutions for the way you work. Explore ERP, HR, CRM, learning platforms, education systems, and mobile applications with ODIN Software Solutions.",
   url: "https://odin-ltd.com",
   demoUrl: "https://odin-erp-web.vercel.app/",
-  ogImage: "/brand/og-placeholder.svg",
-  email: "hello@odin-ltd.com"
+  ogImage: "/brand/og-software-solutions.png",
+  email: "hello@odin-ltd.com",
 };
-
 export const navItems = [
-  { label: { en: "Home", ar: "الرئيسية" }, href: "/" },
-  { label: { en: "ERP Modules", ar: "وحدات النظام" }, href: "/services" },
-  { label: { en: "Platform", ar: "المنصة" }, href: "/solutions" },
+  { label: { en: "Solutions", ar: "الحلول" }, href: "/solutions" },
+  { label: { en: "Services", ar: "الخدمات" }, href: "/services" },
   { label: { en: "Industries", ar: "القطاعات" }, href: "/industries" },
-  { label: { en: "Success Story", ar: "قصة نجاح" }, href: "/case-studies/aviation-academy" },
-  { label: { en: "About", ar: "عن أودين" }, href: "/about" },
-  { label: { en: "Insights", ar: "المقالات" }, href: "/insights" },
-  { label: { en: "Contact", ar: "تواصل معنا" }, href: "/contact" }
+  { label: { en: "About us", ar: "عن ODIN" }, href: "/about" },
 ] as const;
-
-export function pageMetadata(title: string, description: string, path: string): Metadata {
+export function pageMetadata(
+  title: string,
+  description: string,
+  path: string,
+): Metadata {
   return {
     title,
     description,
-    alternates: {
-      canonical: path
-    },
+    alternates: { canonical: path },
     openGraph: {
       title,
       description,
@@ -40,15 +36,15 @@ export function pageMetadata(title: string, description: string, path: string): 
           url: siteConfig.ogImage,
           width: 1200,
           height: 630,
-          alt: "ODIN corporate technology"
-        }
-      ]
+          alt: siteConfig.name,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [siteConfig.ogImage]
-    }
+      images: [siteConfig.ogImage],
+    },
   };
 }

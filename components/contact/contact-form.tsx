@@ -1,17 +1,12 @@
 "use client";
-
-import { FormEvent, useMemo, useState } from "react";
-
-import { contactServiceOptions } from "@/content/site-content";
-
-type FieldErrors = {
-  name?: string;
-  company?: string;
-  email?: string;
-  message?: string;
-};
-
-type FormState = {
+import { useEffect, useRef, useState, type FormEvent } from "react";
+import Link from "next/link";
+import { useLanguage } from "@/components/language-provider";
+import { Container } from "@/components/ui/container";
+import { Arrow } from "@/components/ui/button-link";
+import { solutions } from "@/content/solutions";
+import { siteConfig } from "@/lib/site";
+type FormValues = {
   name: string;
   company: string;
   email: string;
@@ -19,209 +14,324 @@ type FormState = {
   service: string;
   message: string;
 };
-
-const initialState: FormState = {
+type FieldErrors = Partial<Record<keyof FormValues, string>>;
+const initialValues: FormValues = {
   name: "",
   company: "",
   email: "",
   phone: "",
-  service: contactServiceOptions[0],
-  message: ""
+  service: "",
+  message: "",
 };
 
 export function ContactForm() {
-  const [form, setForm] = useState<FormState>(initialState);
+  const { isArabic: ar, t } = useLanguage();
+  const [form, setForm] = useState(initialValues);
   const [errors, setErrors] = useState<FieldErrors>({});
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
-  const [statusMessage, setStatusMessage] = useState("");
-
-  const isDisabled = useMemo(() => status === "submitting", [status]);
-
-  function validate(values: FormState): FieldErrors {
-    const nextErrors: FieldErrors = {};
-
-    if (!values.name.trim()) nextErrors.name = "Name is required.";
-    if (!values.company.trim()) nextErrors.company = "Company is required.";
-
-    if (!values.email.trim()) {
-      nextErrors.email = "Email is required.";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
-      nextErrors.email = "Enter a valid email address.";
-    }
-
-    if (!values.message.trim()) nextErrors.message = "Message is required.";
-
-    return nextErrors;
+  const [draft, setDraft] = useState<{ url: string; body: string } | null>(
+    null,
+  );
+  const [copied, setCopied] = useState(false);
+  const [copyError, setCopyError] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+  useEffect(() => {
+    const selected = new URLSearchParams(window.location.search).get(
+      "solution",
+    );
+    if (solutions.some((solution) => solution.slug === selected))
+      setForm((values) => ({ ...values, service: selected! }));
+  }, []);
+  function update(key: keyof FormValues, value: string) {
+    setForm((values) => ({ ...values, [key]: value }));
+    setDraft(null);
+    setCopied(false);
+    setCopyError(false);
+    setErrors((current) => ({ ...current, [key]: undefined }));
   }
-
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  function prepare(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-
-    const validationErrors = validate(form);
-    setErrors(validationErrors);
-
-    if (Object.keys(validationErrors).length > 0) {
-      setStatus("error");
-      setStatusMessage("Please fix the highlighted fields.");
+    const nextErrors: FieldErrors = {};
+    if (!form.name.trim())
+      nextErrors.name = ar ? "اكتب اسمك." : "Please enter your name.";
+    if (!form.company.trim())
+      nextErrors.company = ar
+        ? "اكتب اسم الشركة أو المشروع."
+        : "Please enter your company or project name.";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim()))
+      nextErrors.email = ar
+        ? "اكتب بريد إلكتروني صحيح."
+        : "Please enter a valid email address.";
+    if (!form.message.trim())
+      nextErrors.message = ar
+        ? "احكيلنا عن مشروعك."
+        : "Tell us a little about your project.";
+    setErrors(nextErrors);
+    if (Object.keys(nextErrors).length) {
+      const first = Object.keys(nextErrors)[0];
+      formRef.current?.querySelector<HTMLElement>(`[name="${first}"]`)?.focus();
       return;
     }
-
-    setStatus("submitting");
-    setStatusMessage("");
-
+    const service = solutions.find(
+      (solution) => solution.slug === form.service,
+    );
+    const interest = service
+      ? t(service.name)
+      : ar
+        ? "حل مخصص / لسه بنحدد"
+        : "Custom software / Let's work it out";
+    const body = ar
+      ? `الاسم: ${form.name.trim()}\nالشركة أو المشروع: ${form.company.trim()}\nالبريد: ${form.email.trim()}\nالهاتف: ${form.phone.trim()}\nالحل المطلوب: ${interest}\n\nعن المشروع:\n${form.message.trim()}`
+      : `Name: ${form.name.trim()}\nCompany / project: ${form.company.trim()}\nEmail: ${form.email.trim()}\nPhone: ${form.phone.trim()}\nInterested in: ${interest}\n\nAbout the project:\n${form.message.trim()}`;
+    const subject = ar
+      ? `مشروع جديد — ${form.company.trim()}`
+      : `Project inquiry — ${form.company.trim()}`;
+    setDraft({
+      url: `mailto:${siteConfig.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
+      body,
+    });
+  }
+  async function copyDraft() {
+    if (!draft) return;
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form)
-      });
-
-      if (!response.ok) {
-        throw new Error("Request failed");
-      }
-
-      setForm(initialState);
-      setErrors({});
-      setStatus("success");
-      setStatusMessage("Your request was submitted successfully. ODIN team will contact you soon.");
+      await navigator.clipboard.writeText(draft.body);
+      setCopied(true);
+      setCopyError(false);
     } catch {
-      setStatus("error");
-      setStatusMessage("Submission failed. Please try again or email hello@odin-ltd.com.");
+      setCopyError(true);
     }
   }
-
-  function updateField<K extends keyof FormState>(key: K, value: FormState[K]) {
-    setForm((prev) => ({ ...prev, [key]: value }));
-  }
-
+  const fields: {
+    key: "name" | "company" | "email" | "phone";
+    label: string;
+    type: string;
+    autocomplete: string;
+    required: boolean;
+  }[] = [
+    {
+      key: "name",
+      label: ar ? "اسمك" : "Your name",
+      type: "text",
+      autocomplete: "name",
+      required: true,
+    },
+    {
+      key: "company",
+      label: ar ? "الشركة أو المشروع" : "Company / project",
+      type: "text",
+      autocomplete: "organization",
+      required: true,
+    },
+    {
+      key: "email",
+      label: ar ? "البريد الإلكتروني" : "Email address",
+      type: "email",
+      autocomplete: "email",
+      required: true,
+    },
+    {
+      key: "phone",
+      label: ar ? "الهاتف (اختياري)" : "Phone (optional)",
+      type: "tel",
+      autocomplete: "tel",
+      required: false,
+    },
+  ];
   return (
-    <form className="surface p-6 md:p-8" onSubmit={handleSubmit} noValidate>
-      <div className="grid gap-4 md:grid-cols-2">
-        <div>
-          <label className="mb-2 block text-sm font-medium text-silver" htmlFor="name">
-            Name
-          </label>
-          <input
-            id="name"
-            type="text"
-            value={form.name}
-            onChange={(event) => updateField("name", event.target.value)}
-            className="w-full rounded-xl border border-stroke bg-bg/70 px-4 py-3 text-sm text-text outline-none transition focus:border-blue"
-            aria-invalid={Boolean(errors.name)}
-            aria-describedby={errors.name ? "name-error" : undefined}
-          />
-          {errors.name ? (
-            <p id="name-error" className="mt-1 text-xs text-red-300">
-              {errors.name}
-            </p>
-          ) : null}
-        </div>
-
-        <div>
-          <label className="mb-2 block text-sm font-medium text-silver" htmlFor="company">
-            Company
-          </label>
-          <input
-            id="company"
-            type="text"
-            value={form.company}
-            onChange={(event) => updateField("company", event.target.value)}
-            className="w-full rounded-xl border border-stroke bg-bg/70 px-4 py-3 text-sm text-text outline-none transition focus:border-blue"
-            aria-invalid={Boolean(errors.company)}
-            aria-describedby={errors.company ? "company-error" : undefined}
-          />
-          {errors.company ? (
-            <p id="company-error" className="mt-1 text-xs text-red-300">
-              {errors.company}
-            </p>
-          ) : null}
-        </div>
-
-        <div>
-          <label className="mb-2 block text-sm font-medium text-silver" htmlFor="email">
-            Email
-          </label>
-          <input
-            id="email"
-            type="email"
-            value={form.email}
-            onChange={(event) => updateField("email", event.target.value)}
-            className="w-full rounded-xl border border-stroke bg-bg/70 px-4 py-3 text-sm text-text outline-none transition focus:border-blue"
-            aria-invalid={Boolean(errors.email)}
-            aria-describedby={errors.email ? "email-error" : undefined}
-          />
-          {errors.email ? (
-            <p id="email-error" className="mt-1 text-xs text-red-300">
-              {errors.email}
-            </p>
-          ) : null}
-        </div>
-
-        <div>
-          <label className="mb-2 block text-sm font-medium text-silver" htmlFor="phone">
-            Phone (optional)
-          </label>
-          <input
-            id="phone"
-            type="tel"
-            value={form.phone}
-            onChange={(event) => updateField("phone", event.target.value)}
-            className="w-full rounded-xl border border-stroke bg-bg/70 px-4 py-3 text-sm text-text outline-none transition focus:border-blue"
-          />
-        </div>
-
-        <div className="md:col-span-2">
-          <label className="mb-2 block text-sm font-medium text-silver" htmlFor="service">
-            Service interest
+    <form ref={formRef} className="contact-form" onSubmit={prepare} noValidate>
+      <div className="form-grid">
+        {fields.map((field) => (
+          <div key={field.key}>
+            <label htmlFor={field.key}>
+              {field.label}
+              {field.required && <span aria-hidden="true"> *</span>}
+            </label>
+            <input
+              id={field.key}
+              name={field.key}
+              type={field.type}
+              autoComplete={field.autocomplete}
+              required={field.required}
+              maxLength={field.key === "email" ? 254 : 100}
+              value={form[field.key]}
+              onChange={(event) => update(field.key, event.target.value)}
+              dir={
+                field.type === "email" || field.type === "tel"
+                  ? "ltr"
+                  : undefined
+              }
+              aria-invalid={Boolean(errors[field.key])}
+              aria-describedby={
+                errors[field.key] ? `${field.key}-error` : undefined
+              }
+            />
+            {errors[field.key] && (
+              <p className="form-error" id={`${field.key}-error`}>
+                {errors[field.key]}
+              </p>
+            )}
+          </div>
+        ))}
+        <div className="form-wide">
+          <label htmlFor="service">
+            {ar ? "إيه الحل اللي محتاجه؟" : "What can we help you with?"}
           </label>
           <select
             id="service"
+            name="service"
             value={form.service}
-            onChange={(event) => updateField("service", event.target.value)}
-            className="w-full rounded-xl border border-stroke bg-bg/70 px-4 py-3 text-sm text-text outline-none transition focus:border-blue"
+            onChange={(event) => update("service", event.target.value)}
           >
-            {contactServiceOptions.map((option) => (
-              <option key={option} value={option}>
-                {option}
+            <option value="">
+              {ar
+                ? "حل مخصص / لسه بنحدد"
+                : "Custom software / Let's work it out"}
+            </option>
+            {solutions.map((solution) => (
+              <option key={solution.slug} value={solution.slug}>
+                {t(solution.name)}
               </option>
             ))}
           </select>
         </div>
-
-        <div className="md:col-span-2">
-          <label className="mb-2 block text-sm font-medium text-silver" htmlFor="message">
-            Message
+        <div className="form-wide">
+          <label htmlFor="message">
+            {ar ? "احكيلنا عن مشروعك" : "Tell us about your project"}{" "}
+            <span aria-hidden="true">*</span>
           </label>
           <textarea
             id="message"
-            value={form.message}
-            onChange={(event) => updateField("message", event.target.value)}
+            name="message"
+            required
             rows={5}
-            className="w-full rounded-xl border border-stroke bg-bg/70 px-4 py-3 text-sm text-text outline-none transition focus:border-blue"
+            maxLength={3000}
+            value={form.message}
+            onChange={(event) => update("message", event.target.value)}
+            placeholder={
+              ar
+                ? "إيه اللي محتاج تبنيه أو تحسّنه؟ مين هيستخدمه؟"
+                : "What do you need to build or improve? Who is it for?"
+            }
             aria-invalid={Boolean(errors.message)}
             aria-describedby={errors.message ? "message-error" : undefined}
           />
-          {errors.message ? (
-            <p id="message-error" className="mt-1 text-xs text-red-300">
+          {errors.message && (
+            <p id="message-error" className="form-error">
               {errors.message}
             </p>
-          ) : null}
+          )}
         </div>
       </div>
-
-      <div className="mt-6 flex flex-wrap items-center gap-4">
-        <button
-          type="submit"
-          disabled={isDisabled}
-          className="inline-flex items-center justify-center rounded-2xl border border-blue bg-blue px-5 py-3 text-sm font-medium text-white transition hover:-translate-y-0.5 hover:bg-blue/90 disabled:cursor-not-allowed disabled:opacity-60"
-        >
-          {status === "submitting" ? "Submitting..." : "Send Request"}
-        </button>
-
-        {statusMessage ? (
-          <p className={`text-sm ${status === "success" ? "text-emerald-300" : "text-red-300"}`}>{statusMessage}</p>
-        ) : null}
-      </div>
+      <p className="form-notice">
+        {ar
+          ? "هنجهز لك رسالة تراجعها وتبعتها من تطبيق البريد بتاعك. بياناتك مش بتتبعت بمجرد ملء النموذج."
+          : "We'll prepare an email for you to review and send from your email app. Filling in this form doesn't send your information."}{" "}
+        <Link className="text-link" href="/privacy">
+          {ar ? "الخصوصية" : "Privacy"}
+        </Link>
+      </p>
+      <button type="submit" className="button button-primary">
+        {ar ? "جهّز رسالة المشروع" : "Prepare project email"}
+        <Arrow />
+      </button>
+      {draft && (
+        <div className="form-feedback" role="status">
+          <p>
+            {ar
+              ? "الرسالة جاهزة، ولسه متبعتتش. افتح البريد وراجعها واضغط إرسال."
+              : "Your email is ready, but hasn't been sent. Open your email app, review it, and press Send."}
+          </p>
+          <a className="button button-secondary mt-4" href={draft.url}>
+            {ar ? "افتح تطبيق البريد" : "Open email app"}
+            <Arrow />
+          </a>
+          <button type="button" className="text-link mt-4" onClick={copyDraft}>
+            {copied
+              ? ar
+                ? "تم نسخ تفاصيل المشروع"
+                : "Project details copied"
+              : ar
+                ? "انسخ التفاصيل بدلًا من كده"
+                : "Copy details instead"}
+          </button>
+          {copyError && (
+            <>
+              <p>
+                {ar
+                  ? "انسخ التفاصيل من هنا وأرسلها إلى"
+                  : "Copy the details below and email"}{" "}
+                <span dir="ltr">{siteConfig.email}</span>.
+              </p>
+              <textarea
+                aria-label={
+                  ar ? "تفاصيل المشروع للنسخ" : "Project details to copy"
+                }
+                value={draft.body}
+                readOnly
+                rows={8}
+                onFocus={(event) => event.target.select()}
+              />
+            </>
+          )}
+        </div>
+      )}
     </form>
+  );
+}
+
+export function ContactPageContent() {
+  const { isArabic: ar } = useLanguage();
+  return (
+    <Container className="contact-layout">
+      <div className="contact-aside">
+        <h1>
+          {ar ? (
+            <>
+              فكرتك الجاية.
+              <br />
+              نبدأها مع بعض.
+            </>
+          ) : (
+            <>
+              Your next idea.
+              <br />
+              Let&apos;s make it happen.
+            </>
+          )}
+        </h1>
+        <p>
+          {ar
+            ? "احكيلنا عن شغلك وإيه اللي محتاج تبنيه أو تحسّنه. من نظام لإدارة شركتك لتطبيق جديد، البداية من هنا."
+            : "Tell us about your business and what you need to build or improve. From an internal system to a new app, this is where it starts."}
+        </p>
+        <a
+          className="contact-email"
+          href={`mailto:${siteConfig.email}`}
+          dir="ltr"
+        >
+          {siteConfig.email}
+        </a>
+        <div className="contact-expectations">
+          <h2>{ar ? "نبدأ منين؟" : "A few good starting points"}</h2>
+          <ul>
+            <li>
+              {ar
+                ? "المشكلة أو الفكرة اللي عايز تشتغل عليها"
+                : "The problem or idea you want to work on"}
+            </li>
+            <li>
+              {ar
+                ? "مين هيستخدم النظام أو التطبيق"
+                : "Who will use the system or application"}
+            </li>
+            <li>
+              {ar
+                ? "الأدوات الحالية وأي مواعيد مهمة"
+                : "Existing tools and any timing constraints"}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <ContactForm />
+    </Container>
   );
 }

@@ -1,20 +1,10 @@
-import { ERPProduct } from "@/components/sections/erp-product";
-import { Hero } from "@/components/sections/hero";
-import { EyeDivider } from "@/components/ui/eye-divider";
-import { pageMetadata } from "@/lib/site";
-
+import { SoftwareHome } from "@/components/sections/software-home";
+import { pageMetadata, siteConfig } from "@/lib/site";
 export const metadata = pageMetadata(
-  "ODIN ERP | Accounting, Inventory, Sales and POS",
-  "ODIN ERP is a bilingual, auditable platform for accounting, sales, purchasing, inventory, POS, banking, approvals, and reporting.",
-  "/"
+  "ODIN Software Solutions | Software built around your business",
+  siteConfig.description,
+  "/",
 );
-
 export default function HomePage() {
-  return (
-    <>
-      <Hero />
-      <EyeDivider />
-      <ERPProduct />
-    </>
-  );
+  return <SoftwareHome />;
 }

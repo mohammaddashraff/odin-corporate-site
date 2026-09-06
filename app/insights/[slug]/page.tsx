@@ -21,7 +21,7 @@ export function generateMetadata({ params }: InsightPageProps): Metadata {
 
   if (!post) {
     return {
-      title: "Insight Not Found"
+      title: "Insight Not Found",
     };
   }
 
@@ -29,21 +29,21 @@ export function generateMetadata({ params }: InsightPageProps): Metadata {
     title: post.title,
     description: post.excerpt,
     alternates: {
-      canonical: `/insights/${post.slug}`
+      canonical: `/insights/${post.slug}`,
     },
     openGraph: {
       title: post.title,
       description: post.excerpt,
       url: `/insights/${post.slug}`,
       type: "article",
-      images: [siteConfig.ogImage]
+      images: [siteConfig.ogImage],
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
-      images: [siteConfig.ogImage]
-    }
+      images: [siteConfig.ogImage],
+    },
   };
 }
 
@@ -61,7 +61,7 @@ export default function InsightDetailPage({ params }: InsightPageProps) {
           items={[
             { label: "Home", href: "/" },
             { label: "Insights", href: "/insights" },
-            { label: post.title }
+            { label: post.title },
           ]}
         />
 
@@ -69,20 +69,28 @@ export default function InsightDetailPage({ params }: InsightPageProps) {
           {new Date(post.publishedAt).toLocaleDateString("en-US", {
             year: "numeric",
             month: "long",
-            day: "numeric"
+            day: "numeric",
           })}
           {" | "}
           {post.readTime}
         </p>
 
-        <h1 className="mt-4 text-balance text-4xl font-semibold leading-tight md:text-5xl">{post.title}</h1>
-        <p className="mt-5 text-base leading-relaxed text-muted">{post.excerpt}</p>
+        <h1 className="mt-4 text-balance text-4xl font-semibold leading-tight md:text-5xl">
+          {post.title}
+        </h1>
+        <p className="mt-5 text-base leading-relaxed text-muted">
+          {post.excerpt}
+        </p>
 
         <div className="mt-10 space-y-6">
           {post.sections.map((section) => (
             <section key={section.heading} className="surface p-6">
-              <h2 className="text-2xl font-semibold text-text">{section.heading}</h2>
-              <p className="mt-3 text-sm leading-relaxed text-muted md:text-base">{section.content}</p>
+              <h2 className="text-2xl font-semibold text-text">
+                {section.heading}
+              </h2>
+              <p className="mt-3 text-sm leading-relaxed text-muted md:text-base">
+                {section.content}
+              </p>
             </section>
           ))}
         </div>

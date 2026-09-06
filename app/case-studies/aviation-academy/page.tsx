@@ -8,7 +8,7 @@ import { pageMetadata } from "@/lib/site";
 export const metadata = pageMetadata(
   "Case Study - Aviation Academy",
   "How ODIN reduced operational time by 30% for an Aviation Academy through AI automation and integrated dashboards.",
-  "/case-studies/aviation-academy"
+  "/case-studies/aviation-academy",
 );
 
 export default function AviationCaseStudyPage() {
@@ -19,7 +19,7 @@ export default function AviationCaseStudyPage() {
           items={[
             { label: "Home", href: "/" },
             { label: "Case Study", href: "/case-studies/aviation-academy" },
-            { label: "Aviation Academy" }
+            { label: "Aviation Academy" },
           ]}
         />
 
@@ -27,8 +27,9 @@ export default function AviationCaseStudyPage() {
           Aviation Academy: from manual workflows to controlled operations
         </h1>
         <p className="mt-5 max-w-3xl text-base leading-relaxed text-muted">
-          ODIN built custom AI automation and integrated dashboard infrastructure for an aviation academy to eliminate
-          delays and restore full workflow visibility.
+          ODIN built custom AI automation and integrated dashboard
+          infrastructure for an aviation academy to eliminate delays and restore
+          full workflow visibility.
         </p>
 
         <div className="surface mt-10 overflow-hidden">
@@ -44,7 +45,9 @@ export default function AviationCaseStudyPage() {
 
         <div className="mt-10 grid gap-5 md:grid-cols-3">
           <article className="surface p-6">
-            <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-silver">Challenges</h2>
+            <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-silver">
+              Challenges
+            </h2>
             <ul className="mt-4 space-y-2 text-sm text-muted">
               <li>Manual processes caused delays and inefficiency.</li>
               <li>Limited visibility slowed operational decision-making.</li>
@@ -52,15 +55,21 @@ export default function AviationCaseStudyPage() {
           </article>
 
           <article className="surface p-6">
-            <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-silver">Solutions</h2>
+            <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-silver">
+              Solutions
+            </h2>
             <ul className="mt-4 space-y-2 text-sm text-muted">
               <li>Custom AI automation mapped to academy workflows.</li>
-              <li>Integrated dashboards for leadership and operational teams.</li>
+              <li>
+                Integrated dashboards for leadership and operational teams.
+              </li>
             </ul>
           </article>
 
           <article className="surface p-6">
-            <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-silver">Results</h2>
+            <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-silver">
+              Results
+            </h2>
             <ul className="mt-4 space-y-2 text-sm text-muted">
               <li>30% operational time reduction.</li>
               <li>Full workflow visibility enabling better decisions.</li>

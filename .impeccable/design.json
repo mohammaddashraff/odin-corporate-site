@@ -1,0 +1,372 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-06T09:11:22.270Z",
+  "title": "Design System: ODIN Software Solutions",
+  "extensions": {
+    "colorMeta": {
+      "blue": {
+        "role": "primary",
+        "displayName": "Action Blue",
+        "tonalRamp": [
+          "oklch(15% 0.21860 263.64)",
+          "oklch(26.4% 0.21860 263.64)",
+          "oklch(37.9% 0.21860 263.64)",
+          "oklch(49.3% 0.21860 263.64)",
+          "oklch(60.7% 0.21860 263.64)",
+          "oklch(72.1% 0.21860 263.64)",
+          "oklch(83.6% 0.21860 263.64)",
+          "oklch(95% 0.21860 263.64)"
+        ]
+      },
+      "blue-hover": {
+        "role": "primary",
+        "displayName": "Deep Action Blue",
+        "tonalRamp": [
+          "oklch(15% 0.19496 263.64)",
+          "oklch(26.4% 0.19496 263.64)",
+          "oklch(37.9% 0.19496 263.64)",
+          "oklch(49.3% 0.19496 263.64)",
+          "oklch(60.7% 0.19496 263.64)",
+          "oklch(72.1% 0.19496 263.64)",
+          "oklch(83.6% 0.19496 263.64)",
+          "oklch(95% 0.19496 263.64)"
+        ]
+      },
+      "bg": {
+        "role": "neutral",
+        "displayName": "White",
+        "tonalRamp": [
+          "oklch(15% 0.00000 0.00)",
+          "oklch(26.4% 0.00000 0.00)",
+          "oklch(37.9% 0.00000 0.00)",
+          "oklch(49.3% 0.00000 0.00)",
+          "oklch(60.7% 0.00000 0.00)",
+          "oklch(72.1% 0.00000 0.00)",
+          "oklch(83.6% 0.00000 0.00)",
+          "oklch(95% 0.00000 0.00)"
+        ]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Pale Panel",
+        "tonalRamp": [
+          "oklch(15% 0.00740 260.73)",
+          "oklch(26.4% 0.00740 260.73)",
+          "oklch(37.9% 0.00740 260.73)",
+          "oklch(49.3% 0.00740 260.73)",
+          "oklch(60.7% 0.00740 260.73)",
+          "oklch(72.1% 0.00740 260.73)",
+          "oklch(83.6% 0.00740 260.73)",
+          "oklch(95% 0.00740 260.73)"
+        ]
+      },
+      "pale-bg": {
+        "role": "neutral",
+        "displayName": "Pale Page",
+        "tonalRamp": [
+          "oklch(15% 0.00573 264.53)",
+          "oklch(26.4% 0.00573 264.53)",
+          "oklch(37.9% 0.00573 264.53)",
+          "oklch(49.3% 0.00573 264.53)",
+          "oklch(60.7% 0.00573 264.53)",
+          "oklch(72.1% 0.00573 264.53)",
+          "oklch(83.6% 0.00573 264.53)",
+          "oklch(95% 0.00573 264.53)"
+        ]
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Navy Ink",
+        "tonalRamp": [
+          "oklch(15% 0.06632 257.16)",
+          "oklch(26.4% 0.06632 257.16)",
+          "oklch(37.9% 0.06632 257.16)",
+          "oklch(49.3% 0.06632 257.16)",
+          "oklch(60.7% 0.06632 257.16)",
+          "oklch(72.1% 0.06632 257.16)",
+          "oklch(83.6% 0.06632 257.16)",
+          "oklch(95% 0.06632 257.16)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted Slate",
+        "tonalRamp": [
+          "oklch(15% 0.04239 256.05)",
+          "oklch(26.4% 0.04239 256.05)",
+          "oklch(37.9% 0.04239 256.05)",
+          "oklch(49.3% 0.04239 256.05)",
+          "oklch(60.7% 0.04239 256.05)",
+          "oklch(72.1% 0.04239 256.05)",
+          "oklch(83.6% 0.04239 256.05)",
+          "oklch(95% 0.04239 256.05)"
+        ]
+      },
+      "stroke": {
+        "role": "neutral",
+        "displayName": "Cool Divider",
+        "tonalRamp": [
+          "oklch(15% 0.01729 256.28)",
+          "oklch(26.4% 0.01729 256.28)",
+          "oklch(37.9% 0.01729 256.28)",
+          "oklch(49.3% 0.01729 256.28)",
+          "oklch(60.7% 0.01729 256.28)",
+          "oklch(72.1% 0.01729 256.28)",
+          "oklch(83.6% 0.01729 256.28)",
+          "oklch(95% 0.01729 256.28)"
+        ]
+      },
+      "button-border": {
+        "role": "neutral",
+        "displayName": "Button Border",
+        "tonalRamp": [
+          "oklch(15% 0.02701 257.03)",
+          "oklch(26.4% 0.02701 257.03)",
+          "oklch(37.9% 0.02701 257.03)",
+          "oklch(49.3% 0.02701 257.03)",
+          "oklch(60.7% 0.02701 257.03)",
+          "oklch(72.1% 0.02701 257.03)",
+          "oklch(83.6% 0.02701 257.03)",
+          "oklch(95% 0.02701 257.03)"
+        ]
+      },
+      "field-border": {
+        "role": "neutral",
+        "displayName": "Field Border",
+        "tonalRamp": [
+          "oklch(15% 0.03201 257.24)",
+          "oklch(26.4% 0.03201 257.24)",
+          "oklch(37.9% 0.03201 257.24)",
+          "oklch(49.3% 0.03201 257.24)",
+          "oklch(60.7% 0.03201 257.24)",
+          "oklch(72.1% 0.03201 257.24)",
+          "oklch(83.6% 0.03201 257.24)",
+          "oklch(95% 0.03201 257.24)"
+        ]
+      },
+      "error": {
+        "role": "status",
+        "displayName": "Error Red",
+        "tonalRamp": [
+          "oklch(15% 0.18205 29.51)",
+          "oklch(26.4% 0.18205 29.51)",
+          "oklch(37.9% 0.18205 29.51)",
+          "oklch(49.3% 0.18205 29.51)",
+          "oklch(60.7% 0.18205 29.51)",
+          "oklch(72.1% 0.18205 29.51)",
+          "oklch(83.6% 0.18205 29.51)",
+          "oklch(95% 0.18205 29.51)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Home Display",
+        "purpose": "Homepage heading; responsive overrides are documented in DESIGN.md."
+      },
+      "headline": {
+        "displayName": "Section Headline",
+        "purpose": "Balanced section headings."
+      },
+      "title": {
+        "displayName": "Solution Title",
+        "purpose": "Solution row headings."
+      },
+      "body": {
+        "displayName": "Explanatory Body",
+        "purpose": "Standard supporting copy, usually at a maximum measure of 66ch."
+      },
+      "label": {
+        "displayName": "Action Label",
+        "purpose": "Buttons and prominent text links."
+      },
+      "navigation": {
+        "displayName": "Navigation",
+        "purpose": "Compact desktop links."
+      },
+      "arabic-body": {
+        "displayName": "Arabic Body",
+        "purpose": "Arabic body font; headings additionally remove letter spacing and use line height 1.55."
+      }
+    },
+    "shadows": [
+      {
+        "name": "panel",
+        "value": "0 12px 24px #1c3d6620",
+        "purpose": "ERP screenshot elevation inside its pale frame; also configured as the Tailwind panel shadow."
+      },
+      {
+        "name": "hover",
+        "value": "0 16px 30px #1c3d6628",
+        "purpose": "Retained Tailwind hover shadow used by the older service-grid component, not the current solution-row default."
+      }
+    ],
+    "motion": [
+      {
+        "name": "button-state",
+        "value": "background 0.2s, color 0.2s, border-color 0.2s",
+        "purpose": "Primary and secondary button state changes."
+      },
+      {
+        "name": "navigation-state",
+        "value": "color 0.18s",
+        "purpose": "Desktop navigation hover and active text."
+      },
+      {
+        "name": "tab-state",
+        "value": "background 0.18s, color 0.18s",
+        "purpose": "Solution explorer tab states."
+      },
+      {
+        "name": "workflow-enter",
+        "value": "0.4s cubic-bezier(0.16, 1, 0.3, 1) both",
+        "purpose": "Workflow rows move from translateY(7px) and clip-path inset(0 0 12% 0) to their final static position."
+      },
+      {
+        "name": "workflow-stagger",
+        "value": "0.055s, 0.11s",
+        "purpose": "Second and third workflow rows."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "animation: none !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important",
+        "purpose": "Global prefers-reduced-motion override."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "narrow-phone-max",
+        "value": "380px"
+      },
+      {
+        "name": "stacked-layout-max",
+        "value": "700px"
+      },
+      {
+        "name": "md-container-min",
+        "value": "768px"
+      },
+      {
+        "name": "mobile-navigation-max",
+        "value": "900px"
+      },
+      {
+        "name": "compact-desktop-max",
+        "value": "1100px"
+      },
+      {
+        "name": "wide-hero-min",
+        "value": "1450px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Primary project action with horizontal internal-link arrow.",
+      "html": "<a class=\"ds-primary\" href=\"/contact\">Let's build your solution<svg class=\"ds-arrow\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"M4 12h15m-6-6 6 6-6 6\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></a>",
+      "css": ".ds-primary{display:inline-flex;justify-content:center;align-items:center;gap:18px;min-height:52px;padding:14px 23px;border:1px solid transparent;border-radius:7px;font:700 13px/1.5 Manrope,sans-serif;text-decoration:none;cursor:pointer;transition:background .2s,color .2s,border-color .2s;color:var(--bg,#fff);background:var(--blue,#245de8)}.ds-primary:hover{background:#1545bd}.ds-primary:focus-visible{outline:3px solid var(--blue,#245de8);outline-offset:5px}.ds-arrow{flex:0 0 auto}:host([dir=rtl]) .ds-arrow{transform:scaleX(-1)}@media(prefers-reduced-motion:reduce){.ds-primary,.ds-secondary,.ds-inverse,.ds-nav a{transition-duration:.01ms}}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Secondary action with a visible border; this sample uses the internal-link arrow.",
+      "html": "<a class=\"ds-secondary\" href=\"/contact\">Tell us your idea<svg class=\"ds-arrow\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"M4 12h15m-6-6 6 6-6 6\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></a>",
+      "css": ".ds-secondary{display:inline-flex;justify-content:center;align-items:center;gap:18px;min-height:52px;padding:14px 23px;border:1px solid transparent;border-radius:7px;font:700 13px/1.5 Manrope,sans-serif;text-decoration:none;cursor:pointer;transition:background .2s,color .2s,border-color .2s;color:var(--text,#102747);border-color:#c5d1e2;background:var(--bg,#fff)}.ds-secondary:hover{color:var(--blue,#245de8);border-color:var(--blue,#245de8);background:var(--panel,#f4f7fc)}.ds-secondary:focus-visible{outline:3px solid var(--blue,#245de8);outline-offset:5px}.ds-arrow{flex:0 0 auto}:host([dir=rtl]) .ds-arrow{transform:scaleX(-1)}@media(prefers-reduced-motion:reduce){.ds-primary,.ds-secondary,.ds-inverse,.ds-nav a{transition-duration:.01ms}}"
+    },
+    {
+      "name": "CTA Button on Blue",
+      "kind": "button",
+      "description": "Contextual white button inside the closing project CTA.",
+      "html": "<div class=\"ds-cta\"><a class=\"ds-inverse\" href=\"/contact\">Let's talk about it<svg class=\"ds-arrow\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"M4 12h15m-6-6 6 6-6 6\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></a></div>",
+      "css": ".ds-cta{background:var(--blue,#245de8);padding:24px}.ds-inverse{display:inline-flex;justify-content:center;align-items:center;gap:18px;min-height:52px;padding:14px 23px;border:1px solid transparent;border-radius:7px;font:700 13px/1.5 Manrope,sans-serif;text-decoration:none;cursor:pointer;transition:background .2s,color .2s,border-color .2s;background:var(--bg,#fff);color:#1a4fcb;flex-shrink:0}.ds-inverse:hover{background:#e4edff}.ds-inverse:focus-visible{outline:3px solid var(--blue,#245de8);outline-offset:5px}.ds-arrow{flex:0 0 auto}:host([dir=rtl]) .ds-arrow{transform:scaleX(-1)}@media(prefers-reduced-motion:reduce){.ds-primary,.ds-secondary,.ds-inverse,.ds-nav a{transition-duration:.01ms}}"
+    },
+    {
+      "name": "Text Link",
+      "kind": "button",
+      "refersTo": "text-link",
+      "description": "Unboxed supporting action with underline on hover.",
+      "html": "<a class=\"ds-text-link\" href=\"/solutions\">Explore our solutions<svg class=\"ds-arrow\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"M4 12h15m-6-6 6 6-6 6\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></a>",
+      "css": ".ds-text-link{display:inline-flex;align-items:center;gap:12px;font:700 13px/1.5 Manrope,sans-serif;color:var(--blue,#245de8);text-decoration:none}.ds-text-link:hover{text-decoration:underline;text-underline-offset:5px}.ds-text-link:focus-visible{outline:3px solid var(--blue,#245de8);outline-offset:5px}.ds-arrow{flex:0 0 auto}:host([dir=rtl]) .ds-arrow{transform:scaleX(-1)}"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Contact input with associated label, focus outline, and invalid-state styling.",
+      "html": "<div class=\"ds-field\"><label for=\"ds-name\">Your name <span aria-hidden=\"true\">*</span></label><input id=\"ds-name\" name=\"name\" type=\"text\" autocomplete=\"name\" required maxlength=\"100\" aria-invalid=\"false\"/></div>",
+      "css": ".ds-field{font-family:Manrope,sans-serif;color:var(--text,#102747)}.ds-field label{display:block;margin-bottom:8px;font-size:12px;font-weight:700}.ds-field input{width:100%;border:1px solid #bac8dc;border-radius:6px;padding:13px;background:var(--bg,#fff);color:var(--text,#102747);font:400 13px Manrope,sans-serif;caret-color:var(--blue,#245de8)}.ds-field input:focus-visible{outline:3px solid var(--blue,#245de8);outline-offset:2px}.ds-field input[aria-invalid=true]{border-color:#b42318}.ds-field input::placeholder{color:#60718a}"
+    },
+    {
+      "name": "Desktop Navigation",
+      "kind": "nav",
+      "refersTo": "navigation-link",
+      "description": "Compact links with blue hover and current-route treatment; the application supplies mobile disclosure behavior.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Primary navigation\"><a href=\"/solutions\" aria-current=\"page\">Solutions</a><a href=\"/services\">Services</a><a href=\"/industries\">Industries</a></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;gap:32px;font-family:Manrope,sans-serif}.ds-nav a{color:var(--text,#102747);font-size:13px;font-weight:600;padding-block:20px;text-decoration:none;transition:color .18s}.ds-nav a:hover,.ds-nav a[aria-current]{color:var(--blue,#245de8)}.ds-nav a:focus-visible{outline:3px solid var(--blue,#245de8);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-primary,.ds-secondary,.ds-inverse,.ds-nav a{transition-duration:.01ms}}"
+    },
+    {
+      "name": "Pale Surface",
+      "kind": "card",
+      "refersTo": "surface",
+      "description": "Flat reusable container. Internal content determines padding; this primitive has none of its own.",
+      "html": "<div class=\"ds-surface\">ODIN Software Solutions</div>",
+      "css": ".ds-surface{background:var(--panel,#f4f7fc);color:var(--text,#102747);border:1px solid var(--stroke,#dce4ef);border-radius:12px;box-shadow:none;font-family:Manrope,sans-serif}"
+    },
+    {
+      "name": "ODIN Wordmark",
+      "kind": "custom",
+      "description": "Inline eye mark and left-to-right company identity.",
+      "html": "<a class=\"ds-brand\" href=\"/\" aria-label=\"ODIN Software Solutions — Home\"><svg width=\"44\" height=\"44\" viewBox=\"0 0 48 48\" fill=\"none\" aria-hidden=\"true\"><path d=\"M3 24 14 11h20l11 13-11 13H14L3 24Z\" stroke=\"currentColor\" stroke-width=\"3\"/><path d=\"m3 24 12-7m30 7-12-7M3 24l12 7m30-7-12 7\" stroke=\"currentColor\" stroke-width=\"2\"/><circle cx=\"24\" cy=\"24\" r=\"8\" stroke=\"currentColor\" stroke-width=\"3\"/><circle cx=\"24\" cy=\"24\" r=\"3\" fill=\"currentColor\"/></svg><span class=\"ds-brand-type\" dir=\"ltr\"><strong>ODIN<span>.</span></strong><span>Software Solutions</span></span></a>",
+      "css": ".ds-brand{display:inline-flex;align-items:center;gap:10px;flex-shrink:0;color:var(--text,#102747);text-decoration:none}.ds-brand>svg{width:46px;height:46px;color:var(--blue,#245de8)}.ds-brand-type{display:flex;flex-direction:column;gap:1px}.ds-brand-type strong{font:800 33px/.98 Manrope,sans-serif;letter-spacing:.02em}.ds-brand-type strong span{color:var(--blue,#245de8)}.ds-brand-type>span{font:500 9px/1.7 Manrope,sans-serif;letter-spacing:.065em}.ds-brand:focus-visible{outline:3px solid var(--blue,#245de8);outline-offset:5px}@media(max-width:700px){.ds-brand>svg{width:37px;height:37px}.ds-brand-type strong{font-size:29px}.ds-brand-type>span{font-size:8px}}"
+    },
+    {
+      "name": "Solution Row",
+      "kind": "card",
+      "description": "Flat linked offering with a top divider and blue heading/arrow hover.",
+      "html": "<a class=\"ds-solution\" href=\"/solutions/erp\"><div class=\"ds-solution-top\"><h3>Enterprise Resource Planning (ERP)</h3><svg class=\"ds-arrow\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"M6 18 18 6M6 6h12v12\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></div><span class=\"ds-solution-link\">Explore solution</span></a>",
+      "css": ".ds-solution{display:flex;flex-direction:column;align-items:start;border-top:1px solid var(--stroke,#dce4ef);padding:26px 0 35px;text-decoration:none;color:var(--text,#102747);font-family:Manrope,sans-serif}.ds-solution-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;width:100%}.ds-solution h3{margin:0;font-size:21px;font-weight:700;line-height:1.4;letter-spacing:-.018em;min-height:58px}.ds-solution-top>.ds-arrow{color:#7a8ba4;transition:color .2s}.ds-solution-link{margin-top:auto;font-size:11px;font-weight:700;color:var(--blue,#245de8)}.ds-solution:hover h3,.ds-solution:hover .ds-arrow{color:var(--blue,#245de8)}.ds-solution:focus-visible{outline:3px solid var(--blue,#245de8);outline-offset:5px}.ds-arrow{flex:0 0 auto}:host([dir=rtl]) .ds-arrow{transform:scaleX(-1)}@media(prefers-reduced-motion:reduce){.ds-solution .ds-arrow{transition-duration:.01ms}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Software shaped around your work",
+    "overview": "The confirmed identity is professional and light: white and pale blue surfaces, navy typography, blue actions, generous whitespace, and a flat geometric eye mark. Manrope gives the English interface a direct, rounded character; Noto Sans Arabic supports the Arabic reading direction.\n\nThe implemented system uses clear type hierarchy, thin dividers, and restrained containers. Geometry explains connected work, while real product screenshots appear as explicitly identified product examples. The values above describe the built interface, extracted from `app/globals.css`, `tailwind.config.ts`, and the current shared components.",
+    "keyCharacteristics": [
+      "White and pale surfaces with navy text and blue actions.",
+      "Generous section spacing and flat, divided content.",
+      "A geometric eye mark and connected workflow illustration.",
+      "English and Arabic layouts with visible keyboard focus.",
+      "Brief state transitions and a static reduced-motion presentation."
+    ],
+    "rules": [
+      {
+        "name": "The Reading Direction Rule",
+        "body": "Preserve the Arabic heading override: zero letter spacing and line height (1.55). Keep the wordmark and email/telephone fields left-to-right, and mirror directional arrows.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Surface Rule",
+        "body": "Keep current content rows and forms flat; preserve screenshot elevation where it is already used.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do preserve the light navy-and-blue identity and the ODIN Software Solutions wordmark.",
+      "Do reuse the established type hierarchy, flat dividers, and pale surfaces.",
+      "Do retain Arabic typography, reading direction, arrow mirroring, and visible keyboard focus.",
+      "Do identify illustrative workflows and actual product screenshots accurately.",
+      "Do preserve reduced-motion support: animations stop and scrolling becomes immediate.",
+      "Do describe the contact action as preparing an email for the visitor to review and send."
+    ],
+    "donts": [
+      "Don't promote the older ERP-only identity into the company-wide visual system.",
+      "Don't add default shadows to the current forms or solution rows.",
+      "Don't apply Latin letter spacing to Arabic headings.",
+      "Don't present an illustrative workflow as a captured product interface.",
+      "Don't add client logos, testimonials, performance figures, or commercial promises without verified product evidence."
+    ]
+  }
+}
