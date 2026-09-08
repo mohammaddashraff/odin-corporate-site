@@ -8,7 +8,7 @@ import { Header } from "@/components/layout/header";
 import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: { default: siteConfig.name, template: "%s | ODIN Software Solutions" },
+  title: { default: siteConfig.name, template: "%s | OSS. - Odin Software Solutions" },
   description: siteConfig.description,
   openGraph: {
     title: siteConfig.name,
@@ -31,7 +31,13 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [siteConfig.ogImage],
   },
-  icons: { icon: "/icon.svg" },
+  icons: {
+    icon: [
+      { url: "/brand/oss-icon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/brand/oss-icon-192.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: [{ url: "/brand/oss-apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
 };
 const directionContract =
   "<!-- THESIS: Software shaped around a client's work; solution exploration replaces the ERP-only sales pitch. OWN-WORLD: User-selected light, navy and blue; Manrope typography, generous whitespace, flat eye mark, clear geometric workflows. STORY: Understand the breadth, explore a solution, discuss a project. FIRST VIEWPORT: Large three-line message left, keyboard-operable six-solution explorer right, blue project CTA under the message. Signature interaction: choosing a solution replaces its connected workflow with a short staged reveal; reduced motion stays static. FORM: Client-selected professional software studio, code-led, overriding assigned index 4; seed 3afb45e0. FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md -->";

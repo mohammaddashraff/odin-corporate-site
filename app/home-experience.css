@@ -154,7 +154,7 @@ html[dir="rtl"] .text-link:hover .arrow-icon {
   background: #e9eef8;
   color: #53647b;
 }
-.workspace-sidebar > svg:first-child {
+.workspace-sidebar > .odin-mark {
   color: var(--blue);
   width: 30px;
   height: 30px;
@@ -601,7 +601,7 @@ html[dir="rtl"] .text-link:hover .arrow-icon {
   left: calc(50% - 16px);
   top: 5px;
 }
-.preview-phone > svg {
+.preview-phone > .odin-mark {
   width: 23px;
   height: 23px;
   color: var(--blue);
@@ -1035,7 +1035,7 @@ html[dir="rtl"] .text-link:hover .arrow-icon {
   align-items: center;
   justify-content: center;
 }
-.system-hub svg {
+.system-hub .odin-mark {
   width: 44px;
   height: 44px;
 }
@@ -1476,12 +1476,14 @@ html[dir="rtl"] .text-link:hover .arrow-icon {
   .product-demo-action {
     grid-column: 1 / -1;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 15px;
     margin-top: 20px;
   }
-  .product-demo-action > svg {
-    display: none;
+  .product-demo-action > .brand-lockup {
+    flex-basis: 100%;
+    --brand-size: 27px;
   }
   .product-demo-action p {
     font-size: 11px;
@@ -1543,7 +1545,7 @@ html[dir="rtl"] .text-link:hover .arrow-icon {
   .systems-map {
     min-height: 0;
   }
-  .system-hub svg {
+  .system-hub .odin-mark {
     width: 32px;
     height: 32px;
   }

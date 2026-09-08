@@ -172,7 +172,7 @@ Tailwind also retains a hover shadow (`0 16px 30px #1c3d6628`) used by the older
 
 ## Shapes
 
-Controls use modest curved corners, with separate established values for fields, buttons, panels, and the solution visual. Dividers and control borders are (1px). The explorer tab tray uses (9px) corners and individual tabs use (5px); workflow nodes are circular. The eye logo is an outlined polygon with concentric circles, rendered as inline SVG.
+Controls use modest curved corners, with separate established values for fields, buttons, panels, and the solution visual. Dividers and control borders are (1px). The explorer tab tray uses (9px) corners and individual tabs use (5px); workflow nodes are circular. The approved eye logo is a circular navy optical seal with a white lens and blue focal point, served as a transparent PNG.
 
 ## Components
 
@@ -188,7 +188,7 @@ Internal buttons use a horizontal arrow. External links open a new tab with a di
 
 The white sticky header has a bottom divider. Navigation becomes blue on hover and for the current route. The mobile menu uses divided full-width rows, exposes its expanded state, closes on navigation, and returns focus to its trigger when dismissed with Escape.
 
-The logo combines the blue eye mark, navy ODIN lettering with a blue period, and the Software Solutions descriptor. Preserve its left-to-right wordmark in both languages. The `compact` prop does not currently define a separate visual treatment.
+The logo combines the approved illustrated optical seal, navy OSS lettering with a blue period, an optional slash and product identifier, and the lowercase odin software solution descriptor. Preserve the full lockup left-to-right in both languages. The compact treatment reduces both the type and mark for navigation; product pages use the catalog short name automatically. Company pages and the footer omit the product suffix.
 
 ### Cards, surfaces, and rows
 

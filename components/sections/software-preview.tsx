@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/components/language-provider";
-import { OdinMark } from "@/components/ui/logo";
+import { BrandLockup, OdinMark } from "@/components/ui/logo";
 import { Arrow } from "@/components/ui/button-link";
 import { copy, type Solution } from "@/content/solutions";
 
@@ -112,7 +112,7 @@ export function SoftwarePreview({ solution }: { solution: Solution }) {
             <i />
             <i />
           </span>
-          <span>ODIN / {solution.short}</span>
+          <BrandLockup product={solution.short} descriptor={false} mark={false} className="brand-inline" />
           <span className="preview-label">
             {ar ? "تصور توضيحي" : "Concept preview"}
           </span>
@@ -126,7 +126,7 @@ export function SoftwarePreview({ solution }: { solution: Solution }) {
             <SolutionIcon slug="erp" />
             <SolutionIcon slug="hr" />
             <SolutionIcon slug="crm" />
-            <span className="workspace-sidebar-end">O.</span>
+            <span className="workspace-sidebar-end">OSS.</span>
           </aside>
           <div className="workspace-content">
             <div className="workspace-title">
@@ -189,7 +189,7 @@ export function SoftwarePreview({ solution }: { solution: Solution }) {
                       : "Every step.\nA chance to learn."}
                   </strong>
                   <span>
-                    {solution.short === "LMS" ? "ODIN Learning" : "ODIN Campus"}
+                    <BrandLockup product={solution.short} descriptor={false} mark={false} className="brand-inline" />
                   </span>
                   <div className="learning-orbits" aria-hidden="true">
                     <i />
@@ -316,7 +316,7 @@ export function SoftwarePreview({ solution }: { solution: Solution }) {
             ? "تصور للرحلة — مش شاشة منتج جاهز."
             : "An illustrative experience, not a released product screen."}
         </span>
-        <span dir="ltr">{solution.short} / ODIN</span>
+        <span dir="ltr">OSS. / {solution.short}</span>
       </div>
     </div>
   );

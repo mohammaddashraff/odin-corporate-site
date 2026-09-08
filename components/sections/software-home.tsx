@@ -5,7 +5,7 @@ import { useRef, useState } from "react";
 import { useLanguage } from "@/components/language-provider";
 import { Container } from "@/components/ui/container";
 import { Arrow, ButtonLink } from "@/components/ui/button-link";
-import { OdinMark } from "@/components/ui/logo";
+import { BrandLockup } from "@/components/ui/logo";
 import {
   CheckIcon,
   SoftwarePreview,
@@ -33,13 +33,7 @@ export function SolutionVisual({
   return (
     <div className="solution-visual" key={solution.slug}>
       <div className="visual-heading">
-        <OdinMark />
-        <span>
-          ODIN
-          <span className="visual-heading-small">
-            {ar ? "مصمم حول احتياجك" : "Designed around you"}
-          </span>
-        </span>
+        <BrandLockup product={solution.short} compact descriptor={false} />
         <span className="visual-corner" aria-hidden="true">
           <Arrow diagonal />
         </span>
@@ -240,6 +234,7 @@ export function SolutionGrid({ heading = true }: { heading?: boolean }) {
               key={solution.slug}
               href={`/solutions/${solution.slug}` as Route}
             >
+              <BrandLockup product={solution.short} compact className="solution-card-brand" />
               <div className="solution-link-top">
                 <SolutionIcon slug={solution.slug} />
                 <h3>

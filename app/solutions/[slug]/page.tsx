@@ -10,7 +10,7 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   const solution = solutions.find((item) => item.slug === params.slug);
   return solution
     ? pageMetadata(
-        solution.name.en,
+        `OSS. / ${solution.short} - ${solution.name.en}`,
         solution.description.en,
         `/solutions/${solution.slug}`,
       )

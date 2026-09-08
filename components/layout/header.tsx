@@ -7,6 +7,7 @@ import { navItems } from "@/lib/site";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
 import { Logo } from "@/components/ui/logo";
+import { productForPath } from "@/lib/brand";
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -29,7 +30,7 @@ export function Header() {
   return (
     <header className="site-header">
       <Container className="header-inner">
-        <Logo compact />
+        <Logo compact product={productForPath(pathname)} priority />
         <nav
           aria-label={ar ? "التنقل الرئيسي" : "Primary navigation"}
           className="desktop-nav"

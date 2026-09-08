@@ -1,4 +1,4 @@
-# ODIN Software Solutions
+# OSS. | Odin Software Solutions
 
 Corporate website for ODIN Software Solutions: custom software, ERP, HR, CRM, LMS, education systems, and mobile applications.
 
@@ -43,7 +43,19 @@ There is currently no configured transactional email provider, inbox API, CRM we
 
 ## Brand assets
 
-The geometric ODIN mark lives in `components/ui/logo.tsx`; the matching favicon is `app/icon.svg`. The share image is `public/brand/og-software-solutions.png`. Manrope and Noto Sans Arabic are hosted in `public/fonts` with their SIL Open Font Licenses.
+The approved illustrated Odin Eye lives in `public/brand/oss-eye.png`; its transparent master is `public/brand/source/oss-eye-master.png`. PNG icons and an Apple touch icon use the same artwork. `app/opengraph-image.tsx` renders the company share image with the local brand artwork and fonts.
+
+`components/ui/logo.tsx` provides `OdinMark`, a linked `Logo`, and the unlinked `BrandLockup`. Text stays live and the lockup stays left-to-right in both languages. General pages and the footer use OSS.; product pages display OSS. / ERP, LMS, CRM, or the catalog's corresponding `short` name. The company descriptor is `odin software solution`, as approved.
+
+```tsx
+<Logo product="ERP" compact />
+<BrandLockup product="LMS" />
+<BrandLockup product="CRM" descriptor={false} mark={false} className="brand-inline" />
+```
+
+Add a solution with its `slug` and `short` identifier in `content/solutions.ts`; the header, cards, detail pages, and previews automatically use that identifier. `lib/brand.ts` holds the shared asset paths and route lookup. No per-product logo file is needed. Real archived product screenshots retain their original pixels.
+
+Manrope and Noto Sans Arabic are hosted in `public/fonts` with their SIL Open Font Licenses.
 
 ## Deployment
 

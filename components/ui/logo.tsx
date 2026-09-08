@@ -1,43 +1,63 @@
+import Image from "next/image";
 import Link from "next/link";
-export function OdinMark({ className = "" }: { className?: string }) {
+import { brandConfig } from "@/lib/brand";
+
+export function OdinMark({ className = "", priority = false }: {
+  className?: string;
+  priority?: boolean;
+}) {
   return (
-    <svg
-      className={className}
-      width="44"
-      height="44"
-      viewBox="0 0 48 48"
-      fill="none"
+    <Image
+      src={brandConfig.mark}
+      alt=""
       aria-hidden="true"
-    >
-      <path
-        d="M3 24 14 11h20l11 13-11 13H14L3 24Z"
-        stroke="currentColor"
-        strokeWidth="3"
-      />
-      <path
-        d="m3 24 12-7m30 7-12-7M3 24l12 7m30-7-12 7"
-        stroke="currentColor"
-        strokeWidth="2"
-      />
-      <circle cx="24" cy="24" r="8" stroke="currentColor" strokeWidth="3" />
-      <circle cx="24" cy="24" r="3" fill="currentColor" />
-    </svg>
+      className={`odin-mark ${className}`}
+      width={64}
+      height={64}
+      sizes="64px"
+      priority={priority}
+    />
   );
 }
-export function Logo({ compact = false }: { compact?: boolean }) {
+
+type BrandLockupProps = {
+  product?: string;
+  compact?: boolean;
+  descriptor?: boolean;
+  mark?: boolean;
+  priority?: boolean;
+  className?: string;
+};
+
+/** Product names stay live text, so all solutions share the approved mark. */
+export function BrandLockup({ product, compact = false, descriptor = true,
+  mark = true, priority = false, className = "" }: BrandLockupProps) {
+  const productName = product?.trim();
   return (
-    <Link
-      href="/"
-      aria-label="ODIN Software Solutions — Home"
-      className={`brand ${compact ? "brand-compact" : ""}`}
+    <span
+      className={`brand-lockup ${compact ? "brand-compact" : ""} ${className}`}
+      dir="ltr"
+      role="img"
+      aria-label={`${brandConfig.name}${productName ? ` / ${productName}` : ""}`}
     >
-      <OdinMark />
-      <span className="brand-type" dir="ltr">
-        <strong>
-          ODIN<span>.</span>
-        </strong>
-        <span>Software Solutions</span>
+      {mark && <OdinMark priority={priority} />}
+      <span className="brand-type" aria-hidden="true">
+        <span className="brand-line">
+          <strong className="brand-initials">OSS<span>.</span></strong>
+          {productName && <><span className="brand-slash">/</span><span className="brand-product">{productName}</span></>}
+        </span>
+        {descriptor && <span className="brand-descriptor">{brandConfig.descriptor}</span>}
       </span>
+    </span>
+  );
+}
+
+export function Logo({ compact = false, product, priority = false }: {
+  compact?: boolean; product?: string; priority?: boolean;
+}) {
+  return (
+    <Link href="/" aria-label={`${brandConfig.name} - Home`} className="brand">
+      <BrandLockup compact={compact} product={product} priority={priority} />
     </Link>
   );
 }

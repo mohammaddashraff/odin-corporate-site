@@ -7,7 +7,7 @@ import { useState } from "react";
 import { useLanguage } from "@/components/language-provider";
 import { Container } from "@/components/ui/container";
 import { Arrow, ButtonLink } from "@/components/ui/button-link";
-import { OdinMark } from "@/components/ui/logo";
+import { BrandLockup, OdinMark } from "@/components/ui/logo";
 import { CheckIcon, SolutionIcon } from "./software-preview";
 import { copy, solutions } from "@/content/solutions";
 import { siteConfig } from "@/lib/site";
@@ -104,7 +104,7 @@ export function ProductShowcase() {
               </button>
             ))}
             <div className="product-demo-action">
-              <OdinMark />
+              <BrandLockup product="ERP" compact />
               <p>
                 {ar
                   ? "شاشات حقيقية. جرّبها بنفسك."
@@ -126,7 +126,8 @@ export function ProductShowcase() {
                 <i />
                 <i />
               </span>
-              <span>ODIN ERP / {t(view.title)}</span>
+              <BrandLockup product="ERP" descriptor={false} mark={false} className="brand-inline" />
+              <span>{t(view.title)}</span>
               <Arrow diagonal />
             </div>
             <div className="product-screen-image" key={view.image}>
@@ -417,7 +418,7 @@ export function ConnectedSystems() {
             </svg>
             <div className="system-hub">
               <OdinMark />
-              <strong>ODIN</strong>
+              <strong>OSS.</strong>
               <span>{ar ? "حول احتياجك" : "Built around you"}</span>
             </div>
             {solutions.map((item, index) => (

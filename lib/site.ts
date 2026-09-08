@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
+import { brandConfig } from "@/lib/brand";
 
 export const siteConfig = {
-  name: "ODIN Software Solutions",
+  name: brandConfig.name,
   tagline: "Software built around your business.",
   description:
     "Custom software solutions for the way you work. Explore ERP, HR, CRM, learning platforms, education systems, and mobile applications with ODIN Software Solutions.",
   url: "https://odin-ltd.com",
   demoUrl: "https://odin-erp-web.vercel.app/",
-  ogImage: "/brand/og-software-solutions.png",
+  ogImage: brandConfig.socialImage,
   email: "help@odin-ltd.com",
 };
 export const navItems = [

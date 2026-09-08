@@ -12,6 +12,7 @@ import {
 import { SoftwarePreview } from "@/components/sections/software-preview";
 import { copy, type Solution } from "@/content/solutions";
 import { siteConfig } from "@/lib/site";
+import { BrandLockup } from "@/components/ui/logo";
 
 export function SolutionsPageContent() {
   const { isArabic: ar } = useLanguage();
@@ -53,6 +54,7 @@ export function SolutionPageContent({ solution }: { solution: Solution }) {
           </nav>
           <div className="solution-detail-hero">
             <div>
+              <BrandLockup product={solution.short} className="product-hero-brand" />
               <h1>{t(solution.promise)}</h1>
               <p>{t(solution.description)}</p>
               <ButtonLink href={`/contact?solution=${solution.slug}`}>
