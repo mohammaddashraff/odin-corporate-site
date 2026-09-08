@@ -157,7 +157,7 @@ Desktop compositions use asymmetric two-column layouts with generous gaps: the h
 - At up to (1100px), gaps and large hero details tighten.
 - At up to (900px), navigation becomes a disclosed menu; solution and process grids become two columns.
 - At up to (700px), hero, contact, featured product, FAQ, and most detail layouts stack. The solution explorer stays within (500px), and section spacing uses the mobile value.
-- At up to (380px), solution and form grids become one column.
+- At up to (600px), solution grids become one column so the full OSS/product lockup stays legible. Form grids become one column at up to (380px).
 - At (1450px) and above, homepage hero vertical padding becomes (92px).
 
 The sticky header is (92px) tall at desktop, then (80px) and (76px) in the two mobile layouts. Language and menu controls provide a minimum (44px) target.
@@ -172,7 +172,7 @@ Tailwind also retains a hover shadow (`0 16px 30px #1c3d6628`) used by the older
 
 ## Shapes
 
-Controls use modest curved corners, with separate established values for fields, buttons, panels, and the solution visual. Dividers and control borders are (1px). The explorer tab tray uses (9px) corners and individual tabs use (5px); workflow nodes are circular. The approved eye logo is a circular navy optical seal with a white lens and blue focal point, served as a transparent PNG.
+Controls use modest curved corners, with separate established values for fields, buttons, panels, and the solution visual. Dividers and control borders are (1px). The explorer tab tray uses (9px) corners and individual tabs use (5px); workflow nodes are circular. The approved eye logo is a flat hexagonal frame around an open diamond, with a navy eye outline and ring pupil, served as a PNG with a CSS-clipped exterior. The original triangular subdivisions remain visible in matte steel-blue, silver-gray, and dark navy. Do not merge these facets or convert the frame to a uniform color.
 
 ## Components
 
@@ -188,7 +188,7 @@ Internal buttons use a horizontal arrow. External links open a new tab with a di
 
 The white sticky header has a bottom divider. Navigation becomes blue on hover and for the current route. The mobile menu uses divided full-width rows, exposes its expanded state, closes on navigation, and returns focus to its trigger when dismissed with Escape.
 
-The logo combines the approved illustrated optical seal, navy OSS lettering with a blue period, an optional slash and product identifier, and the lowercase odin software solution descriptor. Preserve the full lockup left-to-right in both languages. The compact treatment reduces both the type and mark for navigation; product pages use the catalog short name automatically. Company pages and the footer omit the product suffix.
+The logo combines the approved flat hexagonal eye mark, navy OSS lettering with a blue period, an optional slash and product identifier, and the lowercase odin software solution descriptor. Preserve the full lockup left-to-right in both languages. The compact treatment reduces both the type and mark for navigation; product pages use the catalog short name automatically. Company pages and the footer omit the product suffix.
 
 ### Cards, surfaces, and rows
 

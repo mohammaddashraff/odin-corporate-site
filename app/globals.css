@@ -153,6 +153,11 @@ html[dir="rtl"] .arrow-icon {
   object-fit: contain;
   flex: 0 0 auto;
 }
+.brand-artwork {
+  /* Clip only the export's white margin; preserve the supplied hexagonal art. */
+  clip-path: polygon(50% 0%, 92.6% 27.8%, 92.6% 69.7%, 49.8% 100%, 7.4% 69.7%, 7.4% 27.4%);
+  mix-blend-mode: multiply;
+}
 .brand-lockup > .odin-mark {
   width: calc(var(--brand-size) * 1.26);
   height: calc(var(--brand-size) * 1.26);
@@ -1525,6 +1530,11 @@ details[open] .faq-toggle::after {
   }
   html[dir="rtl"] .hero-copy h1 {
     font-size: 45px;
+  }
+}
+@media (max-width: 600px) {
+  .solutions-grid {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 @media (max-width: 380px) {

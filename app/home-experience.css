@@ -1027,8 +1027,9 @@ html[dir="rtl"] .text-link:hover .arrow-icon {
   top: 32%;
   width: 20%;
   height: 36%;
-  background: var(--blue);
-  color: white;
+  background: var(--pale-bg, #f7f9fd);
+  color: var(--text);
+  border: 1px solid var(--stroke);
   border-radius: 12px;
   display: flex;
   flex-direction: column;
@@ -1047,7 +1048,7 @@ html[dir="rtl"] .text-link:hover .arrow-icon {
 }
 .system-hub > span {
   font-size: 7px;
-  color: #e0eaff;
+  color: var(--muted);
   margin-top: 3px;
 }
 .system-node {

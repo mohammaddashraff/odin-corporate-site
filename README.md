@@ -43,7 +43,7 @@ There is currently no configured transactional email provider, inbox API, CRM we
 
 ## Brand assets
 
-The approved illustrated Odin Eye lives in `public/brand/oss-eye.png`; its transparent master is `public/brand/source/oss-eye-master.png`. PNG icons and an Apple touch icon use the same artwork. `app/opengraph-image.tsx` renders the company share image with the local brand artwork and fonts.
+The approved flat hexagonal Odin Eye lives in `public/brand/oss-geometric-eye.png`; its raster master is `public/brand/source/oss-geometric-eye-master.png`. PNG icons and an Apple touch icon use the same artwork on white. The shared `brand-artwork` class clips the exterior white margin to the hexagonal outline and blends the open eye center with light page backgrounds. The center has no navy backing; lower-right facets use the same blue family as the left, with no turquoise. `app/opengraph-image.tsx` renders the company share image with the local brand artwork and fonts.
 
 `components/ui/logo.tsx` provides `OdinMark`, a linked `Logo`, and the unlinked `BrandLockup`. Text stays live and the lockup stays left-to-right in both languages. General pages and the footer use OSS.; product pages display OSS. / ERP, LMS, CRM, or the catalog's corresponding `short` name. The company descriptor is `odin software solution`, as approved.
 

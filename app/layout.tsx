@@ -33,10 +33,10 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/brand/oss-icon-32.png", sizes: "32x32", type: "image/png" },
-      { url: "/brand/oss-icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/brand/oss-geometric-icon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/brand/oss-geometric-icon-192.png", sizes: "192x192", type: "image/png" },
     ],
-    apple: [{ url: "/brand/oss-apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    apple: [{ url: "/brand/oss-geometric-apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
 };
 const directionContract =

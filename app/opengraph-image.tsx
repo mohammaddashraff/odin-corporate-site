@@ -2,6 +2,7 @@ import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { solutions } from "@/content/solutions";
+import { brandConfig } from "@/lib/brand";
 
 export const runtime = "nodejs";
 export const alt = "OSS. - Odin Software Solutions. Software built around your business.";
@@ -10,13 +11,13 @@ export const contentType = "image/png";
 
 export default async function SocialImage() {
   const [mark, regular, bold] = await Promise.all([
-    readFile(join(process.cwd(), "public/brand/oss-eye.png")),
+    readFile(join(process.cwd(), "public", brandConfig.mark)),
     readFile(join(process.cwd(), "public/fonts/manrope-regular.ttf")),
     readFile(join(process.cwd(), "public/fonts/manrope-bold.ttf")),
   ]);
   return new ImageResponse(
     (
-      <div style={{ display: "flex", flexDirection: "column", padding: "76px 86px", width: "100%", height: "100%", background: "#f7f9fd", color: "#102747", fontFamily: "Manrope" }}>
+      <div style={{ display: "flex", flexDirection: "column", padding: "76px 86px", width: "100%", height: "100%", background: "#ffffff", color: "#102747", fontFamily: "Manrope" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 30 }}>
           {/* ImageResponse embeds the local raster artwork directly. */}
           {/* eslint-disable-next-line @next/next/no-img-element */}

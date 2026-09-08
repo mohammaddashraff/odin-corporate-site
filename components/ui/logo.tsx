@@ -11,7 +11,7 @@ export function OdinMark({ className = "", priority = false }: {
       src={brandConfig.mark}
       alt=""
       aria-hidden="true"
-      className={`odin-mark ${className}`}
+      className={`odin-mark brand-artwork ${className}`}
       width={64}
       height={64}
       sizes="64px"

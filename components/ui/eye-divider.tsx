@@ -14,7 +14,7 @@ export function EyeDivider({ className }: EyeDividerProps) {
         <div className="relative flex items-center justify-center">
           <div className="absolute left-0 right-0 h-px bg-stroke" />
           <div className="relative bg-bg px-4 opacity-55">
-            <Image src={brandConfig.mark} alt="" width={38} height={38} />
+            <Image src={brandConfig.mark} className="brand-artwork" alt="" width={38} height={38} />
           </div>
         </div>
       </Container>
